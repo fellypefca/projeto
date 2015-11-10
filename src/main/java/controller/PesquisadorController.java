@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import modelo.Categoria;
+import modelo.Departamento;
 import modelo.ICadastraPesquisador;
 import modelo.Pesquisador;
 import br.com.caelum.vraptor.Controller;
@@ -33,6 +34,7 @@ public class PesquisadorController {
 	public void formulario() 
 	{	
 		result.include("categoria", listaCategoria());
+		result.include("departamento", listaDepartamento());
 	}
 	
 	public void salva(Pesquisador pesquisador) {
@@ -51,7 +53,11 @@ public class PesquisadorController {
 		Pesquisador pesquisadorEncontrado = aux.buscaPorCPF(cpf);
 		if (pesquisadorEncontrado == null) {
 			result.notFound();
-		} else {
+		} else 
+		{
+			result.include("categoria", listaCategoria());
+			result.include("departamento", listaDepartamento());
+			
 			result.include(pesquisadorEncontrado);
 
 			result.of(this).formulario();
@@ -61,5 +67,10 @@ public class PesquisadorController {
 	public List<Categoria> listaCategoria()
 	{
 		return aux.listaCategoria();
+	}
+	
+	public List<Departamento> listaDepartamento()
+	{
+		return aux.listaDepartamento();
 	}
 }

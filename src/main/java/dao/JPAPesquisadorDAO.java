@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
 import modelo.Categoria;
+import modelo.Departamento;
 import modelo.Pesquisador;
 
 @Transactional
@@ -59,6 +60,12 @@ private final EntityManager manager;
 	public List<Categoria> listaCategoria() {
 		return this.manager
 				.createQuery("select c from Categoria c", Categoria.class)
+				.getResultList();
+	}
+	
+	public List<Departamento> listaDepartamento() {
+		return this.manager
+				.createQuery("select d from Departamento d", Departamento.class)
 				.getResultList();
 	}
 }

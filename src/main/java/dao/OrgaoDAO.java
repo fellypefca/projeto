@@ -2,12 +2,12 @@ package dao;
 
 import java.util.List;
 
-import modelo.OrgaoFinanciador;
+import modelo.Orgao;
 
 public interface OrgaoDAO {
-	void adiciona(OrgaoFinanciador orgao);
+	void adiciona(Orgao orgao);
 
-	List<OrgaoFinanciador> todos();
+	List<Orgao> todos();
 
-	OrgaoFinanciador buscaPorNome(String nome);
+	Orgao buscaPorCnpj(String cnpj);
 }

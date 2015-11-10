@@ -5,7 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import modelo.ICadastraOrgao;
-import modelo.OrgaoFinanciador;
+import modelo.Orgao;
 
 public class CadastraOrgaoBD implements ICadastraOrgao{
 
@@ -24,19 +24,19 @@ public class CadastraOrgaoBD implements ICadastraOrgao{
 	CadastraOrgaoBD() { this(null); }
 
 	@Override
-	public void cadastra(OrgaoFinanciador orgao) {
+	public void cadastra(Orgao orgao) {
 		this.dao.adiciona(orgao);
 		
 	}
 
 	@Override
-	public List<OrgaoFinanciador> todosOsOrgaos() {
+	public List<Orgao> todosOsOrgaos() {
 		return this.dao.todos();
 	}
 
 	@Override
-	public OrgaoFinanciador buscaPorNome(String nome) {
-		return this.dao.buscaPorNome(nome);
+	public Orgao buscaPorCnpj(String cnpj) {
+		return this.dao.buscaPorCnpj(cnpj);
 	}
 }
 

@@ -6,7 +6,7 @@
         <class>modelo.Categoria</class>
         <class>modelo.Endereco</class>
         <class>modelo.Departamento</class>
-        <class>modelo.OrgaoFinanciador</class>
+        <class>modelo.Orgao</class>
         <properties>
           <property name="hibernate.connection.username" value="root"/>
           <property name="hibernate.connection.password" value="root"/>

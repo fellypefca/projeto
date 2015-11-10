@@ -3,7 +3,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import modelo.ICadastraOrgao;
-import modelo.OrgaoFinanciador;
+import modelo.Orgao;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
@@ -29,20 +29,20 @@ public class OrgaoController {
 		public void index() {}
 		public void formulario() {}
 
-		public void salva(OrgaoFinanciador orgaoFinanciador) {
+		public void salva(Orgao orgao) {
 
-			validator.validate(orgaoFinanciador);
+			validator.validate(orgao);
 			validator.onErrorRedirectTo(this).formulario();
-			aux.cadastra(orgaoFinanciador);
+			aux.cadastra(orgao);
 			result.redirectTo(this).lista();
 		}
 
-		public List<OrgaoFinanciador> lista() {
+		public List<Orgao> lista() {
 			return aux.todosOsOrgaos();
 		}
 
-		public void edita(String nome) {
-			OrgaoFinanciador orgaoEncontrado = aux.buscaPorNome(nome);
+		public void edita(String cnpj) {
+			Orgao orgaoEncontrado = aux.buscaPorCnpj(cnpj);
 			if (orgaoEncontrado == null) {
 				result.notFound();
 			} else {

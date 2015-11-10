@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
-import modelo.OrgaoFinanciador;
+import modelo.Orgao;
 
 @Transactional
 public class JPAOrgaoDAO implements OrgaoDAO{
@@ -26,28 +26,28 @@ public class JPAOrgaoDAO implements OrgaoDAO{
 	
 
 	@Override
-	public void adiciona(OrgaoFinanciador Orgao) {
-		if (Orgao.getId() == null) 
+	public void adiciona(Orgao orgao) {
+		if (orgao.getId() == null) 
 		{
-			this.manager.persist(Orgao);
+			this.manager.persist(orgao);
 		} else {
-			this.manager.merge(Orgao);
+			this.manager.merge(orgao);
 		}	
 		
 	}
 
 	@Override
-	public List<OrgaoFinanciador> todos() {
+	public List<Orgao> todos() {
 		return this.manager
-				.createQuery("select d from OrgaoFinanciador d", OrgaoFinanciador.class)
+				.createQuery("select o from Orgao o", Orgao.class)
 				.getResultList();
 	}
 
 	@Override
-	public OrgaoFinanciador buscaPorNome(String nome) {
+	public Orgao buscaPorCnpj(String cnpj) {
 		try {
-			return this.manager.createQuery("select d from Orgao d where d.nome = :nome", OrgaoFinanciador.class)
-					.setParameter("nome", nome)
+			return this.manager.createQuery("select o from Orgao o where o.cnpj = :cnpj", Orgao.class)
+					.setParameter("cnpj", cnpj)
 					.getSingleResult();
 		} catch (NoResultException e) {
 			return null;

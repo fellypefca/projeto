@@ -73,7 +73,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Pesquisadores Cadastrados</h1>
+            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Orgaos Cadastrados</h1>
             <p></p>
             <p></p>
           </div>
@@ -88,29 +88,16 @@
             <table class="table table-bordered table-condensed table-striped">
               <thead>
                 <tr>
-                  <th class="active">CPF</th>
-                  <th class="active">Nome</th>
-                  <th class="active">Telefone</th>
-                  <th class="active">Email</th>
-                  <th class="active">Data Nascimento</th>
-                  <th class="active">Departamento</th>
-                  <th class="active">Categoria</th>
-                  <th class="active">Lattes</th>
+                  <th class="active">Orgaos</th>
+ 
                 </tr>
               </thead>
               <tbody>
-              <c:forEach items="${pesquisadorList}" var="pesquisador">
+              <c:forEach items="${orgaoList}" var="orgao">
                 <tr>
-                  <td>${pesquisador.cpf}</td>
-                  <td>${pesquisador.nome}</td>
-                  <td>${pesquisador.telefone}</td>
-                  <td>${pesquisador.email}</td>
-                  <td>${pesquisador.nascimento}</td>
-                  <td>${pesquisador.departamento}</td>
-                  <td>${pesquisador.categoria}</td>
-                  <td>${pesquisador.lattesUrl}</td>
+                  <td>${orgao.nome}</td>
                   <td class="hidden-xs">
-                    <a href="${linkTo[PesquisadorController].edita}?cpf=${pesquisador.cpf}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
+                    <a href="${linkTo[OrgaoController].edita}?sigla=${orgao.cnpj}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
                 </tr>
                 </c:forEach>
               </tbody>
@@ -120,5 +107,4 @@
       </div>
     </div>
   </body>
-
 </html>

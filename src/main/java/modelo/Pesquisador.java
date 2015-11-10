@@ -34,10 +34,9 @@ public class Pesquisador {
 	
 	private Calendar nascimento;
 	
-	//@NotEmpty
-	//@OneToOne
-	//@PrimaryKeyJoinColumn
-	//private Departamento departamento;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="DEPARTAMENTO_ID", nullable = true)
+	private Departamento departamento;
 	
 
 	@OneToOne(fetch=FetchType.EAGER)
@@ -50,7 +49,7 @@ public class Pesquisador {
 	private String lattesUrl;
 	
 	public Pesquisador(String cpf, String nome, String telefone,
-			String email, Calendar nascimento,
+			String email, Calendar nascimento, Departamento departamento,
 			Categoria categoria, String lattesUrl) {
 		
 		super();
@@ -59,7 +58,7 @@ public class Pesquisador {
 		this.telefone = telefone;
 		this.email = email;
 		this.nascimento = nascimento;
-		//this.departamento = departamento;
+		this.departamento = departamento;
 		this.categoria = categoria;
 		this.lattesUrl = lattesUrl;
 	}
@@ -125,6 +124,14 @@ public class Pesquisador {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+	
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	@Override

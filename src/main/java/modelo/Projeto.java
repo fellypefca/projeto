@@ -43,7 +43,7 @@ public class Projeto {
 	
 	@ManyToMany
     @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
-	private List<OrgaoFinanciador> financiador;
+	private List<Orgao> financiador;
 	
 	
 	@ManyToMany
@@ -54,7 +54,7 @@ public class Projeto {
 	
 	public Projeto (String titulo, String descricao, 
 			String palavrasChave, Calendar dataInicio, 
-			Calendar dataFim, String nomeDoCoordenador, List<OrgaoFinanciador> financiador, List<Pesquisador> pesquisadores) {
+			Calendar dataFim, String nomeDoCoordenador, List<Orgao> financiador, List<Pesquisador> pesquisadores) {
 		
 		this.titulo = titulo;
 		this.descricao = descricao;
@@ -110,11 +110,11 @@ public class Projeto {
 		this.nomeDoCoordenador = nomeDoCoordenador;
 	}
 	
-	public List<OrgaoFinanciador> getFinanciador() {
+	public List<Orgao> getFinanciador() {
 		return financiador;
 	}
 	
-	public void setFinanciador(List<OrgaoFinanciador> financiador) {
+	public void setFinanciador(List<Orgao> financiador) {
 		this.financiador = financiador;
 	}
 	

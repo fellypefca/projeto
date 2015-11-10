@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface ICadastraOrgao {
 
-	void cadastra(OrgaoFinanciador orgao);
+	void cadastra(Orgao orgao);
 
-	List<OrgaoFinanciador> todosOsOrgaos();
+	List<Orgao> todosOsOrgaos();
 
-	OrgaoFinanciador buscaPorNome(String nome);
+	Orgao buscaPorCnpj(String cnpj);
 
 }

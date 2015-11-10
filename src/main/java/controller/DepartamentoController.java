@@ -8,6 +8,7 @@ import modelo.Departamento;
 import modelo.ICadastraDepartameno;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
@@ -30,12 +31,21 @@ public class DepartamentoController {
 	public void index() {}
 	public void formulario() {}
 
-	public void salva(Departamento departamento) {
+	public void salva(Departamento departamento) throws Exception {
 
-		validator.validate(departamento);
-		validator.onErrorRedirectTo(this).formulario();
-		aux.cadastra(departamento);
-		result.redirectTo(this).lista();
+		Departamento dep = this.aux.buscaPorSigla(departamento.getSigla());
+		if(dep != null)
+		{
+			validator.add(new I18nMessage("Departamento", "departamento.cadastrado"));
+			validator.onErrorRedirectTo(this).formulario();
+		}
+		else
+		{
+			validator.validate(departamento);
+			validator.onErrorRedirectTo(this).formulario();
+			aux.cadastra(departamento);
+			result.redirectTo(this).lista();
+		}
 	}
 
 	public List<Departamento> lista() {

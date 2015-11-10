@@ -6,7 +6,9 @@ import javax.inject.Inject;
 
 
 
+
 import modelo.Categoria;
+import modelo.Departamento;
 import modelo.ICadastraPesquisador;
 import modelo.Pesquisador;
 
@@ -41,5 +43,10 @@ public class CadastraPesquisadorBD implements ICadastraPesquisador {
 	@Override
 	public List<Categoria> listaCategoria() {
 		return this.dao.listaCategoria();
+	}
+	@Override
+	public List<Departamento> listaDepartamento() {
+		// TODO Auto-generated method stub
+		return this.dao.listaDepartamento();
 	}
 }
