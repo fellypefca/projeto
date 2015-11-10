@@ -43,18 +43,18 @@ public class Projeto {
 	
 	@ManyToMany
     @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
-	private List<Orgao> financiador;
+	private List<Orgao> orgao;
 	
 	
-	@ManyToMany
-    @JoinTable(name="Projeto_has_Pesquisadores", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="pesquisador_id")})
-	private List<Pesquisador> pesquisadores;
+//	@ManyToMany
+//    @JoinTable(name="Projeto_has_Pesquisadores", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="pesquisador_id")})
+//	private List<Pesquisador> pesquisadores;
 	
 	public Projeto() {}
 	
 	public Projeto (String titulo, String descricao, 
 			String palavrasChave, Calendar dataInicio, 
-			Calendar dataFim, String nomeDoCoordenador, List<Orgao> financiador, List<Pesquisador> pesquisadores) {
+			Calendar dataFim, String nomeDoCoordenador, List<Orgao> orgao) {
 		
 		this.titulo = titulo;
 		this.descricao = descricao;
@@ -62,8 +62,8 @@ public class Projeto {
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.nomeDoCoordenador = nomeDoCoordenador;
-		this.financiador = financiador;
-		this.pesquisadores = pesquisadores;
+		this.orgao = orgao;
+//		this.pesquisadores = pesquisadores;
 	}
 	
 	
@@ -110,21 +110,21 @@ public class Projeto {
 		this.nomeDoCoordenador = nomeDoCoordenador;
 	}
 	
-	public List<Orgao> getFinanciador() {
-		return financiador;
+	public List<Orgao> getOrgao() {
+		return orgao;
 	}
 	
-	public void setFinanciador(List<Orgao> financiador) {
-		this.financiador = financiador;
+	public void setOrgao(List<Orgao> orgao) {
+		this.orgao = orgao;
 	}
 	
-	public List<Pesquisador> getPesquisadoresLista() {
-		return pesquisadores;
-	}
-	
-	public void setPesquisadoresLista(List<Pesquisador> pesquisadores) {
-		this.pesquisadores = pesquisadores;
-	}
+//	public List<Pesquisador> getPesquisadoresLista() {
+//		return pesquisadores;
+//	}
+//	
+//	public void setPesquisadoresLista(List<Pesquisador> pesquisadores) {
+//		this.pesquisadores = pesquisadores;
+//	}
 	
 	@Override
 	public int hashCode() {
