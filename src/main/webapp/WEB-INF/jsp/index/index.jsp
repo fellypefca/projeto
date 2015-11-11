@@ -13,6 +13,11 @@
     <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
     <link href="/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
     <title>Home</title>
     </head>
   <body>
@@ -29,17 +34,41 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="${linkTo[ProjetoController].formulario}"> Cadastrar Projeto</a>
+            <li class="dropdown">
+        				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="#">Atividades</a></li>
+           					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
+       					 </ul>
             </li>
-            <li>
-              <a href="${linkTo[PesquisadorController].formulario}"> Cadastrar Pesquisador</a>
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pesquisador <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[PesquisadorController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[PesquisadorController].lista}">Lista</a></li>
+ 						 </ul>
             </li>
-            <li>
-              <a href="${linkTo[ProjetoController].formulario}"> Atividades</a>
+             <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categoria <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[CategoriaController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[CategoriaController].lista}">Lista</a></li>
+ 						 </ul>
             </li>
-            <li>
-              <a href="${linkTo[DepartamentoController].formulario}"> Cadastrar Departamento</a>
+           <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Departamento <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[DepartamentoController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[DepartamentoController].lista}">Lista</a></li>
+ 						 </ul>
+            </li>
+              <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Orgão Financiador <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[OrgaoController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[OrgaoController].lista}">Lista</a></li>
+ 						 </ul>
             </li>
           </ul>
         </div>

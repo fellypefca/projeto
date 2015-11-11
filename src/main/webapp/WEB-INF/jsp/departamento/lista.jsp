@@ -16,26 +16,12 @@
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/font.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <title>Projeto</title>
   </head>
-  
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/jquery/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
-    <link href="${pageContext.request.contextPath}/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-   
-    <script type="text/javascript" src="/bootstrap/jquery/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
-    <link href="/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <title>Home</title>
-    </head>
   <body>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -50,37 +36,46 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="${linkTo[ProjetoController].formulario}"> Cadastrar Projeto</a>
+            <li class="dropdown">
+        				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="#">Atividades</a></li>
+           					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
+       					 </ul>
             </li>
-            <li>
-              <a href="${linkTo[PesquisadorController].formulario}"> Cadastrar Pesquisador</a>
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pesquisador <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[PesquisadorController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[PesquisadorController].lista}">Lista</a></li>
+ 						 </ul>
             </li>
-            <li>
-              <a href="${linkTo[ProjetoController].formulario}"> Atividades</a>
+             <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categoria <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[CategoriaController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[CategoriaController].lista}">Lista</a></li>
+ 						 </ul>
             </li>
-            <li>
-              <a href="${linkTo[DepartamentoController].formulario}"> Cadastrar Departamento</a>
+           <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Departamento <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[DepartamentoController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[DepartamentoController].lista}">Lista</a></li>
+ 						 </ul>
+            </li>
+              <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Orgão Financiador <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+           					 <li><a href="${linkTo[OrgaoController].formulario}">Cadastrar</a></li>
+           					 <li><a href="${linkTo[OrgaoController].lista}">Lista</a></li>
+ 						 </ul>
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <c:if test="${not empty mensagem}">
-      <p class="mensagem">${mensagem}</p>
-    </c:if>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Departamentos Cadastrados</h1>
-            <p></p>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <div class="section">
       <div class="container">
         <div class="row">
@@ -89,7 +84,7 @@
               <thead>
                 <tr>
                   <th class="active">Departamentos</th>
- 
+ 				 <th class="active"> Editar </th>
                 </tr>
               </thead>
               <tbody>
