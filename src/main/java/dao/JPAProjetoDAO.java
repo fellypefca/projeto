@@ -47,6 +47,7 @@ public class JPAProjetoDAO implements ProjetoDAO {
 					.setParameter("titulo", titulo)
 					.getSingleResult();
 		} catch (NoResultException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

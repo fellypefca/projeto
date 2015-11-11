@@ -152,12 +152,13 @@
 				<form role="form" id="form" class=""
 					action="${linkTo[ProjetoController].salva }" method="post">
 					<div class="form-group">
-
+					<input type="hidden" name="projeto.id" value="${projeto.id}">
+					
 						<label class="control-label">Título</label> <input
 							class="form-control" type="text" name="projeto.titulo"
 							value="${projeto.titulo}" />
 					</div>
-					<input type="hidden" name="projeto.id" value="${projeto.id}">
+
 					<div class="form-group" id="descricao">
 						<label class="control-label">Descrição</label>
 						<textarea class="form-control" name="projeto.descricao">${projeto.descricao}</textarea>

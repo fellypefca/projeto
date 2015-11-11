@@ -30,7 +30,8 @@ public class Projeto {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long id;
 	
-	@NotEmpty @Column(unique = true)
+	@NotEmpty 
+	@Column(unique = true)
 	private String titulo;
 
 	private String descricao;
@@ -39,35 +40,27 @@ public class Projeto {
 
 	private Calendar dataInicio;
 	
+	private SimpleDateFormat format;
+	
 	private Calendar dataFim;
 	
 	@NotEmpty 
 	private String nomeDoCoordenador;
 	
-	@ManyToMany
-    @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
-	private List<Orgao> orgao;
+//	@ManyToMany
+//    @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
+//	private List<Orgao> orgao;
 	
 	
 //	@ManyToMany
 //    @JoinTable(name="Projeto_has_Pesquisadores", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="pesquisador_id")})
 //	private List<Pesquisador> pesquisadores;
 	
-	public Projeto() {}
-	
-	public Projeto (String titulo, String descricao, 
-			String palavrasChave, Calendar dataInicio, 
-			Calendar dataFim, String nomeDoCoordenador, List<Orgao> orgao) {
-		
-		this.titulo = titulo;
-		this.descricao = descricao;
-		this.palavrasChave = palavrasChave;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.nomeDoCoordenador = nomeDoCoordenador;
-		this.orgao = orgao;
-//		this.pesquisadores = pesquisadores;
+	public Projeto() 
+	{
 	}
+	
+	
 	
 	
 	public Long getId() {
@@ -94,16 +87,17 @@ public class Projeto {
 	public void setPalavrasChave(String palavrasChave) {
 		this.palavrasChave = palavrasChave;
 	}
-	public String getDataInicio() {
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		return format.format(dataInicio.getTime());
+
+	public Calendar getDataInicio() {
+		return dataInicio;
 	}
+	
 	public void setDataInicio(Calendar dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public String getDataFim() {
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		return format.format(dataFim.getTime());
+	
+	public Calendar getDataFim() {
+		return dataFim;
 	}
 	public void setDataFim(Calendar dataFim) {
 		this.dataFim = dataFim;
@@ -115,13 +109,13 @@ public class Projeto {
 		this.nomeDoCoordenador = nomeDoCoordenador;
 	}
 	
-	public List<Orgao> getOrgao() {
-		return orgao;
-	}
-	
-	public void setOrgao(List<Orgao> orgao) {
-		this.orgao = orgao;
-	}
+//	public List<Orgao> getOrgao() {
+//		return orgao;
+//	}
+//	
+//	public void setOrgao(List<Orgao> orgao) {
+//		this.orgao = orgao;
+//	}
 	
 //	public List<Pesquisador> getPesquisadoresLista() {
 //		return pesquisadores;

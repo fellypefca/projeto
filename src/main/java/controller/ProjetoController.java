@@ -5,8 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 
-
-import modelo.Categoria;
 import modelo.ICadastraProjeto;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
@@ -63,7 +61,6 @@ public class ProjetoController {
 			result.notFound();
 		} else {
 			result.include(projetoEncontrado);
-
 			result.of(this).formulario();
 		}
 	}
