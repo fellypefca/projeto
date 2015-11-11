@@ -36,7 +36,7 @@ public class DepartamentoController {
 		Departamento dep = this.aux.buscaPorSigla(departamento.getSigla());
 		if(dep != null)
 		{
-			validator.add(new I18nMessage("Departamento", "departamento.cadastrado"));
+			validator.add(new I18nMessage("Erro", "departamento.existente"));
 			validator.onErrorRedirectTo(this).formulario();
 		}
 		else

@@ -40,7 +40,7 @@ public class CategoriaController {
 		Categoria teste = aux.buscaPorNome(categoria.getTipo());
 		if(teste != null)
 		{
-			validator.add(new I18nMessage("Cadastro","campo.existente"));
+			validator.add(new I18nMessage("Erro","categoria.existente"));
 			validator.onErrorRedirectTo(this).formulario();
 		}
 			

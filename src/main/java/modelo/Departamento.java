@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -12,7 +13,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Departamento {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long id;
 
 	@NotEmpty

@@ -1,6 +1,7 @@
 package modelo;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
@@ -17,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -24,7 +26,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Projeto {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long id;
 	
 	@NotEmpty @Column(unique = true)
@@ -91,14 +94,16 @@ public class Projeto {
 	public void setPalavrasChave(String palavrasChave) {
 		this.palavrasChave = palavrasChave;
 	}
-	public Calendar getDataInicio() {
-		return dataInicio;
+	public String getDataInicio() {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		return format.format(dataInicio.getTime());
 	}
 	public void setDataInicio(Calendar dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Calendar getDataFim() {
-		return dataFim;
+	public String getDataFim() {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		return format.format(dataFim.getTime());
 	}
 	public void setDataFim(Calendar dataFim) {
 		this.dataFim = dataFim;

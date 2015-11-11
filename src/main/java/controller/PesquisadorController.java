@@ -10,6 +10,7 @@ import modelo.ICadastraPesquisador;
 import modelo.Pesquisador;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
@@ -38,11 +39,18 @@ public class PesquisadorController {
 	}
 	
 	public void salva(Pesquisador pesquisador) {
-
+		
+//		Pesquisador teste = aux.buscaPorCPF(pesquisador.getCpf());
+//		if(teste != null) {
+//			validator.add(new I18nMessage("Erro","pesquisador.existente"));
+//			validator.onErrorRedirectTo(this).formulario();
+//		}
+//		else {
 		validator.validate(pesquisador);
 		validator.onErrorRedirectTo(this).formulario();
 		aux.cadastra(pesquisador);
 		result.redirectTo(this).lista();
+//		}
 	}
 
 	public List<Pesquisador> lista() {

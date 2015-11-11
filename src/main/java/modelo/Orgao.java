@@ -5,14 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Orgao {
 	
-	@Id 
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@Id
+	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long id;
 	
 	@NotEmpty

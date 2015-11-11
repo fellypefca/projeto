@@ -5,10 +5,13 @@ import java.util.List;
 import javax.inject.Inject;
 
 
+
+import modelo.Categoria;
 import modelo.ICadastraProjeto;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
@@ -32,11 +35,22 @@ public class ProjetoController {
 	public void formulario() {}
 
 	public void salva(Projeto projeto) {
+		
+//		Projeto teste = aux.buscaPorTitulo(projeto.getTitulo());
+//		if(teste != null)
+//		{
+//			validator.add(new I18nMessage("Erro","projeto.existente"));
+//			validator.onErrorRedirectTo(this).formulario();
+//		}
+//			
+//		else
+//		{
 
 		validator.validate(projeto);
 		validator.onErrorRedirectTo(this).formulario();
 		aux.cadastra(projeto);
 		result.redirectTo(this).lista();
+//	}
 	}
 
 	public List<Projeto> lista() {

@@ -2,10 +2,13 @@ package controller;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import modelo.Categoria;
 import modelo.ICadastraOrgao;
 import modelo.Orgao;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
@@ -29,12 +32,22 @@ public class OrgaoController {
 		public void index() {}
 		public void formulario() {}
 
-		public void salva(Orgao orgao) {
-
+		public void salva(Orgao orgao) throws Exception{
+			
+			Orgao teste = aux.buscaPorCnpj(orgao.getCnpj());
+			if(teste != null)
+			{
+				validator.add(new I18nMessage("Erro","orgao.existente"));
+				validator.onErrorRedirectTo(this).formulario();
+			}
+				
+			else
+			{
 			validator.validate(orgao);
 			validator.onErrorRedirectTo(this).formulario();
 			aux.cadastra(orgao);
 			result.redirectTo(this).lista();
+		}
 		}
 
 		public List<Orgao> lista() {

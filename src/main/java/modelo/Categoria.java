@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,8 +14,10 @@ public class Categoria
 {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long id;
+	
 	@NotEmpty
 	@Column(unique = true)
 	private String tipo;

@@ -1,5 +1,6 @@
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 
+import javax.persistence.SequenceGenerator;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -19,7 +22,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Pesquisador {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private Long Id;	
 	
 	@NotEmpty @Column(unique = true)
@@ -92,8 +96,9 @@ public class Pesquisador {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Calendar getNascimento() {
-		return nascimento;
+	public String getNascimento() {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		return format.format(nascimento.getTime());
 	}
 	public void setNascimento(Calendar nascimento) {
 		this.nascimento = nascimento;
