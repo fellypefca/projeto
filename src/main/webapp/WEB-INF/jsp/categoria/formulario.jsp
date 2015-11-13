@@ -110,11 +110,11 @@
 	<h2 class="text-center" style="COLOR: #397cbb;">Formulário de
 		cadastro de categorias</h2>
 	<div class="div-ident section text-left">
-		<div class="container div-ident">
+		<div class="container" style="width: 885px">
 			<div class="col-md-9 div-ident">
 				<p></p>
 				<p></p>
-				<form role="form" id="form" class=""
+				<form  id="form" style="width: 885px" class=""
 					action="${linkTo[CategoriaController].salva }" method="post">
 					<div class="form-group">
 
@@ -133,7 +133,9 @@
 							</li>
 						</c:forEach>
 					</ul>
+					<div align=center>
 					<input type="submit" class="btn btn-primary" value="Salvar" />
+					</div>
 				</form>
 			</div>
 		</div>
