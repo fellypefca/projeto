@@ -163,6 +163,7 @@
 						<label class="control-label">Descrição</label>
 						<textarea class="form-control" name="projeto.descricao">${projeto.descricao}</textarea>
 					</div>
+					
 					<div class="form-group" id="pchave">
 						<label class="control-label" id="pchave">Palavras-chave</label> <input
 							class="form-control" type="text" name="projeto.palavrasChave"
@@ -176,17 +177,19 @@
 							name="projeto.nomeDoCoordenador"
 							value="${projeto.nomeDoCoordenador}" />
 					</div>
-					<div class="form-group" id="initdata">
-						<label class="control-label">Data de Inicio</label> <input
+					
+					<div class="form-group" id="finaldata">
+						<label class="control-label">Data de Início</label> <input
 							class="form-control" id="datepicker" type="text"
-							name="projeto.dataIncio" value="${projeto.dataInicio}" />
+							name="projeto.dataInicio" value="${projeto.dataInicio}" />
 					</div>
 
-					<div class="form-group">
-						<label class="control-label" id="finaldata">Data do
-							Término</label> <input class="form-control" id="datepicker2" type="text"
+					<div class="form-group" id="finaldata">
+						<label class="control-label">Data do término</label> <input
+							class="form-control" id="datepicker2" type="text"
 							name="projeto.dataFim" value="${projeto.dataFim}" />
 					</div>
+
 					<ul class="errors">
 						<c:forEach items="${errors}" var="error">
 							<li>

@@ -40,8 +40,6 @@ public class Projeto {
 
 	private Calendar dataInicio;
 	
-	private SimpleDateFormat format;
-	
 	private Calendar dataFim;
 	
 	@NotEmpty 
@@ -57,11 +55,7 @@ public class Projeto {
 //	private List<Pesquisador> pesquisadores;
 	
 	public Projeto() 
-	{
-	}
-	
-	
-	
+	{}
 	
 	public Long getId() {
 		return id;
@@ -88,16 +82,18 @@ public class Projeto {
 		this.palavrasChave = palavrasChave;
 	}
 
-	public Calendar getDataInicio() {
-		return dataInicio;
+	public String getDataInicio() {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		return format.format(dataInicio.getTime());
 	}
 	
 	public void setDataInicio(Calendar dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 	
-	public Calendar getDataFim() {
-		return dataFim;
+	public String getDataFim() {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		return format.format(dataFim.getTime());
 	}
 	public void setDataFim(Calendar dataFim) {
 		this.dataFim = dataFim;
