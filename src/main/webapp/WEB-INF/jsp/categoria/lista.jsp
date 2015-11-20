@@ -40,7 +40,7 @@
             <li class="dropdown">
         				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
         				<ul class="dropdown-menu">
-           					 <li><a href="#">Atividades</a></li>
+           					 <li><a href="${linkTo[AtividadeController].formulario}">Atividades</a></li>
            					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
            					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
        					 </ul>
@@ -101,6 +101,7 @@
                 <tr>
                   <th class="active">Tipo de Categorias</th>
  				 <th class="active"> Editar</th>
+ 				 <th class="active"> Remover</th>
                 </tr>
               </thead>
               <tbody>
@@ -109,6 +110,10 @@
                   <td>${categoria.tipo}</td>
                   <td class="hidden-xs">
                     <a href="${linkTo[CategoriaController].edita}?tipo=${categoria.tipo}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
+                    </td>
+                    <td class="hidden-xs">
+                    <a href="${linkTo[CategoriaController].remover}?tipo=${categoria.tipo}"> <i class="fa fa-2x fa-close fa-fw text-danger"></i></a>
+                    </td>
                 </tr>
                 </c:forEach>
               </tbody>

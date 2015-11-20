@@ -13,5 +13,6 @@ public interface PesquisadorDAO {
 	Pesquisador buscaPorCPF(String cpf);
 	List<Categoria> listaCategoria();
 	List<Departamento> listaDepartamento();
+	void remover(Pesquisador pesquisador); 
 
 }

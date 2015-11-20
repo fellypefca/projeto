@@ -1,6 +1,8 @@
-package modelo;
+package icadastra;
 
 import java.util.List;
+
+import modelo.Departamento;
 
 public interface ICadastraDepartameno {
 
@@ -9,4 +11,6 @@ public interface ICadastraDepartameno {
 	List<Departamento> todosOsDepartamentos();
 
 	Departamento buscaPorSigla(String nome);
+	
+	void remover(Departamento departamento);
 }

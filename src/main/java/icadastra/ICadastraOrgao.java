@@ -1,6 +1,8 @@
-package modelo;
+package icadastra;
 
 import java.util.List;
+
+import modelo.Orgao;
 
 public interface ICadastraOrgao {
 
@@ -9,5 +11,7 @@ public interface ICadastraOrgao {
 	List<Orgao> todosOsOrgaos();
 
 	Orgao buscaPorCnpj(String cnpj);
+	
+	void remover(Orgao orgao);
 
 }

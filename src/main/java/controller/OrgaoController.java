@@ -1,10 +1,11 @@
 package controller;
+import icadastra.ICadastraOrgao;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 import modelo.Categoria;
-import modelo.ICadastraOrgao;
 import modelo.Orgao;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
@@ -62,5 +63,15 @@ public class OrgaoController {
 				result.include(orgaoEncontrado);
 				result.of(this).formulario();
 			}
+		}
+		public void remover(String cnpj){
+			Orgao OrgaoEncontrado = aux.buscaPorCnpj(cnpj);
+			if (OrgaoEncontrado == null) {
+				result.notFound();
+			} else {
+				aux.remover(OrgaoEncontrado);
+				result.redirectTo(this).lista();
+			}
+			
 		}
 }

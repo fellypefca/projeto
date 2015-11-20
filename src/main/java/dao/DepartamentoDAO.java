@@ -11,4 +11,6 @@ public interface DepartamentoDAO {
 	List<Departamento> todos();
 
 	Departamento buscaPorSigla(String nome);
+	
+	void remover(Departamento departamento); 
 }

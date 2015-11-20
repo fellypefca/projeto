@@ -25,7 +25,10 @@
 <link
 	href="${pageContext.request.contextPath}/bootstrap/css/jquery-ui.css"
 	rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="/bootstrap/jquery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
@@ -34,10 +37,6 @@
 	type="text/css">
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
@@ -49,7 +48,6 @@
 	type="text/css">
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"
 	type="text/css">
-
 <script>
 		$(function() {
 			$("#datepicker").datepicker({
@@ -85,9 +83,9 @@
 		    });
 		});
 </script>
-
-<title>Cadastro de Projetos</title>
- </head>
+    <title>Cadastro de Projetos</title>
+  </head>
+  
   <body>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -103,94 +101,105 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-        				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="#">Atividades</a></li>
-           					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
-       					 </ul>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><a href="${linkTo[AtividadeController].formulario}">Atividades</a></li>
+                <li>
+                  <a href="${linkTo[ProjetoController].formulario}">Cadastrar</a>
+                </li>
+                <li>
+                  <a href="${linkTo[ProjetoController].lista}">Lista</a>
+                </li>
+              </ul>
             </li>
             <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pesquisador <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[PesquisadorController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[PesquisadorController].lista}">Lista</a></li>
- 						 </ul>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pesquisador <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="${linkTo[PesquisadorController].formulario}">Cadastrar</a>
+                </li>
+                <li>
+                  <a href="${linkTo[PesquisadorController].lista}">Lista</a>
+                </li>
+              </ul>
             </li>
-             <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categoria <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[CategoriaController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[CategoriaController].lista}">Lista</a></li>
- 						 </ul>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categoria <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="${linkTo[CategoriaController].formulario}">Cadastrar</a>
+                </li>
+                <li>
+                  <a href="${linkTo[CategoriaController].lista}">Lista</a>
+                </li>
+              </ul>
             </li>
-           <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Departamento <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[DepartamentoController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[DepartamentoController].lista}">Lista</a></li>
- 						 </ul>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Departamento <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="${linkTo[DepartamentoController].formulario}">Cadastrar</a>
+                </li>
+                <li>
+                  <a href="${linkTo[DepartamentoController].lista}">Lista</a>
+                </li>
+              </ul>
             </li>
-              <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Orgão Financiador <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[OrgaoController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[OrgaoController].lista}">Lista</a></li>
- 						 </ul>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Orgão Financiador <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="${linkTo[OrgaoController].formulario}">Cadastrar</a>
+                </li>
+                <li>
+                  <a href="${linkTo[OrgaoController].lista}">Lista</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
       </div>
     </div>
-	<h2 class="text-center" style="COLOR: #397cbb;">Formulário de
-		cadastro de projetos</h2>
-	<div class="div-ident section text-left">
-		<div class="container" style="width: 885px">
-			<div class="col-md-9 div-ident">
-				<p></p>
-				<p></p>
-				<form  id="form" style="width: 885px" class=""
-					action="${linkTo[ProjetoController].salva }" method="post">
-					<div class="form-group">
-					<input type="hidden" name="projeto.id" value="${projeto.id}">
-					
-						<label class="control-label">Título</label> <input
-							class="form-control" type="text" name="projeto.titulo"
-							value="${projeto.titulo}" />
-					</div>
-
-					<div class="form-group" id="descricao">
-						<label class="control-label">Descrição</label>
-						<textarea class="form-control" name="projeto.descricao">${projeto.descricao}</textarea>
-					</div>
-					
-					<div class="form-group" id="pchave">
-						<label class="control-label" id="pchave">Palavras-chave</label> <input
-							class="form-control" type="text" name="projeto.palavrasChave"
-							value="${projeto.palavrasChave}" />
-						<p class="help-block">Separe as palavras-chave com o uso de
-							vírgulas</p>
-					</div>
-					<div class="form-group">
-						<label class="control-label" id="cordnome">Nome do
-							Coordenador</label> <input class="form-control" type="text"
-							name="projeto.nomeDoCoordenador"
-							value="${projeto.nomeDoCoordenador}" />
-					</div>
-					
-					<div class="form-group" id="finaldata">
-						<label class="control-label">Data de Início</label> <input
-							class="form-control" id="datepicker" type="text"
-							name="projeto.dataInicio" value="${projeto.dataInicio}" />
-					</div>
-
-					<div class="form-group" id="finaldata">
-						<label class="control-label">Data do término</label> <input
-							class="form-control" id="datepicker2" type="text"
-							name="projeto.dataFim" value="${projeto.dataFim}" />
-					</div>
-
-					<ul class="errors">
+    <h2 class="text-center" style="COLOR: #397cbb;">Formulário de cadastro de projetos</h2>
+    <div class="container text-left"
+    style="width: 685px">
+      <div class="col-md-12 div-ident text-left">
+        <p></p>
+        <p></p>
+        <form id="form" class="text-left" action="${linkTo[ProjetoController].salva }"
+        method="post">
+          <div class="form-group">
+            <input type="hidden" name="projeto.id" value="${projeto.id}">
+            <label class="control-label">Título</label>
+            <input class="form-control" type="text" name="projeto.titulo"
+            value="${projeto.titulo}">
+          </div>
+          <div class="form-group" id="descricao">
+            <label class="control-label">Descrição</label>
+            <textarea class="form-control" name="projeto.descricao">${projeto.descricao}</textarea>
+          </div>
+          <div class="form-group" id="pchave">
+            <label class="control-label" id="pchave">Palavras-chave</label>
+            <input class="form-control" type="text" name="projeto.palavrasChave"
+            value="${projeto.palavrasChave}">
+            <p class="help-block">Separe as palavras-chave com o uso de vírgulas</p>
+          </div>
+          <div class="form-group">
+            <label class="control-label" id="cordnome">Nome do Coordenador</label>
+            <input class="form-control" type="text" name="projeto.nomeDoCoordenador"
+            value="${projeto.nomeDoCoordenador}">
+          </div>
+          <div class="form-group" id="finaldata">
+            <label class="control-label">Data de Início</label>
+            <input class="form-control" id="datepicker" type="text"
+            name="projeto.dataInicio" value="${projeto.dataInicio}">
+          </div>
+          <div class="form-group" id="finaldata">
+            <label class="control-label">Data do término</label>
+            <input class="form-control" id="datepicker2" type="text"
+            name="projeto.dataFim" value="${projeto.dataFim}">
+          </div>
+          <ul class="errors">
 						<c:forEach items="${errors}" var="error">
 							<li>
 								<!-- o campo em que ocorreu o erro, ou o tipo do erro -->
@@ -199,13 +208,12 @@
 							</li>
 						</c:forEach>
 					</ul>
-					<div align=center>
-					<input type="submit" class="btn btn-primary" value="Salvar" />
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</body>
+          <div align="center">
+            <input type="submit" class="btn btn-primary" value="Salvar">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 
 </html>

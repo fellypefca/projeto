@@ -1,6 +1,8 @@
-package modelo;
+package icadastra;
 
 import java.util.List;
+
+import modelo.Categoria;
 
 public interface ICadastraCategoria {
 
@@ -8,6 +10,7 @@ public interface ICadastraCategoria {
 
 	List<Categoria> todosAsCategorias();
 
-	Categoria buscaPorNome(String categoria);
-
+	Categoria buscaPorNome(String categoria)
+	;
+	void remover(Categoria categoria);
 }

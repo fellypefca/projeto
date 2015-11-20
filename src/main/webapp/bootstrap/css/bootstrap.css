@@ -2628,7 +2628,7 @@ input[type="search"] {
 }
 .form-group {
   margin-bottom: 15px;
-  text-align:center;
+  text-align:left;
 }
 .radio,
 .checkbox {
@@ -2792,7 +2792,7 @@ select[multiple].input-lg {
   width: 34px;
   height: 34px;
   line-height: 34px;
-  text-align: center;
+  text-align: left;
   pointer-events: none;
 }
 .input-lg + .form-control-feedback,
@@ -3950,7 +3950,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-weight: normal;
   line-height: 1;
   color: #555;
-  text-align: center;
+  text-align: left;
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -4898,7 +4898,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-weight: bold;
   line-height: 1;
   color: #fff;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: .25em;

@@ -11,6 +11,7 @@ import modelo.Categoria;
 import modelo.Departamento;
 import modelo.Pesquisador;
 
+
 @Transactional
 public class JPAPesquisadorDAO implements PesquisadorDAO {
 	
@@ -67,5 +68,12 @@ private final EntityManager manager;
 		return this.manager
 				.createQuery("select d from Departamento d", Departamento.class)
 				.getResultList();
+	}
+
+	@Override
+	public void remover(Pesquisador pesquisador) {
+		Pesquisador PesquisadorASerRemovido = manager.getReference(Pesquisador.class, pesquisador.getId());
+		 this.manager.remove(PesquisadorASerRemovido); 
+		
 	}
 }

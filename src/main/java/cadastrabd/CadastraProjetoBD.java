@@ -1,5 +1,7 @@
-package dao;
+package cadastrabd;
 
+
+import icadastra.ICadastraProjeto;
 
 import java.util.List;
 
@@ -7,7 +9,9 @@ import javax.inject.Inject;
 
 
 
-import modelo.ICadastraProjeto;
+
+
+import dao.ProjetoDAO;
 import modelo.Projeto;
 
 
@@ -38,5 +42,10 @@ public class CadastraProjetoBD implements ICadastraProjeto {
 	@Override
 	public Projeto buscaPorTitulo(String titulo) {
 		return this.dao.buscaPorTitulo(titulo);
+	}
+	@Override
+	public void remover(Projeto projeto) {
+		dao.remover(projeto);
+		
 	}
 }

@@ -1,4 +1,6 @@
-package dao;
+package cadastrabd;
+
+import icadastra.ICadastraPesquisador;
 
 import java.util.List;
 
@@ -7,9 +9,11 @@ import javax.inject.Inject;
 
 
 
+
+
+import dao.PesquisadorDAO;
 import modelo.Categoria;
 import modelo.Departamento;
-import modelo.ICadastraPesquisador;
 import modelo.Pesquisador;
 
 
@@ -48,5 +52,9 @@ public class CadastraPesquisadorBD implements ICadastraPesquisador {
 	public List<Departamento> listaDepartamento() {
 		// TODO Auto-generated method stub
 		return this.dao.listaDepartamento();
+	}
+	@Override
+	public void remover(Pesquisador pesquisador) {
+		this.dao.remover(pesquisador);
 	}
 }

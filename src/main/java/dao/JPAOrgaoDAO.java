@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import modelo.Orgao;
 
+
 @Transactional
 public class JPAOrgaoDAO implements OrgaoDAO{
 	
@@ -50,7 +51,14 @@ public class JPAOrgaoDAO implements OrgaoDAO{
 					.setParameter("cnpj", cnpj)
 					.getSingleResult();
 		} catch (NoResultException e) {
+			e.printStackTrace();
 			return null;
 		}
+	}
+	@Override
+	public void remover(Orgao orgao) {
+		Orgao OrgaoASerRemovido = manager.getReference(Orgao.class, orgao.getId());
+		 this.manager.remove(OrgaoASerRemovido); 
+		
 	}
 }

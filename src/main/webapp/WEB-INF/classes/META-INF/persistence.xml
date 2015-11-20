@@ -7,8 +7,6 @@
         <class>modelo.Endereco</class>
         <class>modelo.Departamento</class>
         <class>modelo.Orgao</class>
-        <class>modelo.Pesquisador</class>
-        <class>modelo.OrgaoFinanciador</class>
         <properties>
           <property name="hibernate.connection.username" value="root"/>
           <property name="hibernate.connection.password" value="root"/>

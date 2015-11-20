@@ -1,11 +1,14 @@
-package dao;
+package cadastrabd;
 
+
+import icadastra.ICadastraCategoria;
 
 import java.util.List;
 
 import javax.inject.Inject;
+
+import dao.CategoriaDAO;
 import modelo.Categoria;
-import modelo.ICadastraCategoria;
 
 
 
@@ -36,5 +39,10 @@ public class CadastraCategoriaBD implements ICadastraCategoria {
 	@Override
 	public Categoria buscaPorNome(String categoria) {
 		return this.dao.buscaPorCategoria(categoria);
+	}
+	@Override
+	public void remover(Categoria categoria) {
+		this.dao.remover(categoria);
+		
 	}
 }

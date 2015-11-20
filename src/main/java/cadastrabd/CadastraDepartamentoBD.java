@@ -1,11 +1,13 @@
-package dao;
+package cadastrabd;
+
+import icadastra.ICadastraDepartameno;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
+import dao.DepartamentoDAO;
 import modelo.Departamento;
-import modelo.ICadastraDepartameno;
 
 public class CadastraDepartamentoBD implements ICadastraDepartameno {
 	
@@ -35,5 +37,11 @@ public class CadastraDepartamentoBD implements ICadastraDepartameno {
 	@Override
 	public Departamento buscaPorSigla(String nome) {
 		return this.dao.buscaPorSigla(nome);
+	}
+
+	@Override
+	public void remover(Departamento departamento) {
+		this.dao.remover(departamento);
+		
 	}
 }

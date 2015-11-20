@@ -11,4 +11,6 @@ public interface ProjetoDAO {
 	List<Projeto> todos();
 
 	Projeto buscaPorTitulo(String titulo);
+	
+	void remover(Projeto projeto);
 }

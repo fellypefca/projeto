@@ -11,4 +11,6 @@ public interface CategoriaDAO {
 	List<Categoria> todos();
 
 	Categoria buscaPorCategoria(String titulo);
+	
+	void remover(Categoria categoria);
 }

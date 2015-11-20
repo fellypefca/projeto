@@ -1,10 +1,12 @@
-package dao;
+package cadastrabd;
+
+import icadastra.ICadastraOrgao;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import modelo.ICadastraOrgao;
+import dao.OrgaoDAO;
 import modelo.Orgao;
 
 public class CadastraOrgaoBD implements ICadastraOrgao{
@@ -37,6 +39,12 @@ public class CadastraOrgaoBD implements ICadastraOrgao{
 	@Override
 	public Orgao buscaPorCnpj(String cnpj) {
 		return this.dao.buscaPorCnpj(cnpj);
+	}
+
+	@Override
+	public void remover(Orgao orgao) {
+		this.dao.remover(orgao);
+		
 	}
 }
 

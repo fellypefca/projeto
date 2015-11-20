@@ -1,11 +1,13 @@
 package controller;
 
+import icadastra.ICadastraDepartameno;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 import modelo.Departamento;
-import modelo.ICadastraDepartameno;
+import modelo.Pesquisador;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.I18nMessage;
@@ -60,5 +62,15 @@ public class DepartamentoController {
 			result.include(departamentoEncontrado);
 			result.of(this).formulario();
 		}
+	}
+	public void remover(String sigla){
+		Departamento departamentoEncontrado = aux.buscaPorSigla(sigla);
+		if (departamentoEncontrado == null) {
+			result.notFound();
+		} else {
+			aux.remover(departamentoEncontrado);
+			result.redirectTo(this).lista();
+		}
+		
 	}
 }

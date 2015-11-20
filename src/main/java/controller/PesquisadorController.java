@@ -1,13 +1,15 @@
 package controller;
 
+import icadastra.ICadastraPesquisador;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 import modelo.Categoria;
 import modelo.Departamento;
-import modelo.ICadastraPesquisador;
 import modelo.Pesquisador;
+import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.I18nMessage;
@@ -80,5 +82,15 @@ public class PesquisadorController {
 	public List<Departamento> listaDepartamento()
 	{
 		return aux.listaDepartamento();
+	}
+	public void remover(String cpf){
+		Pesquisador pesquisadorEncontrado = aux.buscaPorCPF(cpf);
+		if (pesquisadorEncontrado == null) {
+			result.notFound();
+		} else {
+			aux.remover(pesquisadorEncontrado);
+			result.redirectTo(this).lista();
+		}
+		
 	}
 }

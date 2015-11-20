@@ -1,5 +1,7 @@
 package controller;
 
+import icadastra.ICadastraCategoria;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,7 +9,7 @@ import javax.inject.Inject;
 import com.sun.imageio.plugins.common.I18N;
 
 import modelo.Categoria;
-import modelo.ICadastraCategoria;
+import modelo.Departamento;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.I18nMessage;
@@ -66,5 +68,17 @@ public class CategoriaController {
 
 			result.of(this).formulario();
 		}
+	}
+	public void remover(String tipo){
+		Categoria categoriaEncontrado = aux.buscaPorNome(tipo);
+		if (categoriaEncontrado == null) {
+			result.notFound();
+		} else {
+			result.include(categoriaEncontrado);
+
+			aux.remover(categoriaEncontrado);
+			result.redirectTo(this).lista();
+		}
+		
 	}
 }
