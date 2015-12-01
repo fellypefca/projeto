@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-	<h2>Pesquisador cadastrado com sucesso!</h2>
+	<h2>Atividade cadastrada com sucesso!</h2>
 	<p>
 		Veja aqui a <a href="${linkTo[PesquisadorController].lista}"> lista de
 			todos os projetos </a>

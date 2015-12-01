@@ -56,7 +56,7 @@
             <li class="dropdown">
         				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
         				<ul class="dropdown-menu">
-           					 <li><a href="#">Atividades</a></li>
+           					 <li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
            					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
            					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
        					 </ul>
@@ -117,6 +117,7 @@
                 <tr>
                   <th class="active">Orgaos</th>
                   <th class="active">Editar</th>
+                  <th class="active">Remover</th>
                  
                 </tr>
               </thead>
@@ -125,8 +126,11 @@
                 <tr>
                   <td>${orgao.nome}</td>
                   <td class="hidden-xs">
-                    <a href="${linkTo[OrgaoController].edita}?sigla=${orgao.cnpj}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
-                </tr>
+                    <a href="${linkTo[OrgaoController].edita}?cnpj=${orgao.cnpj}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
+                <td>
+                    <a href="${linkTo[OrgaoController].remover}?cnpj=${orgao.cnpj}"> <i class="fa fa-2x fa-close fa-fw text-danger"></i></a>
+                    </td>
+
                 </c:forEach>
               </tbody>
             </table>

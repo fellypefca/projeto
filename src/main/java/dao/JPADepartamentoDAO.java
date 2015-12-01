@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import modelo.Departamento;
 
+
 @Transactional
 public class JPADepartamentoDAO implements DepartamentoDAO {
 	
@@ -52,5 +53,12 @@ public class JPADepartamentoDAO implements DepartamentoDAO {
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+	@Override
+	public void remover(Departamento departamento) {
+		 Departamento DepASerRemovido = manager.getReference(Departamento.class, departamento.getId());
+		 this.manager.remove(DepASerRemovido);
+		
+		
 	}
 }

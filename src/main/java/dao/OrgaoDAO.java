@@ -10,4 +10,6 @@ public interface OrgaoDAO {
 	List<Orgao> todos();
 
 	Orgao buscaPorCnpj(String cnpj);
+	
+	void remover(Orgao orgao);
 }

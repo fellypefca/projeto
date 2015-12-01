@@ -1,11 +1,15 @@
 package controller;
 
+import icadastra.ICadastraProjeto;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 
-import modelo.ICadastraProjeto;
+
+
+import modelo.Atividade;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
@@ -63,5 +67,15 @@ public class ProjetoController {
 			result.include(projetoEncontrado);
 			result.of(this).formulario();
 		}
+	}
+	public void remover(String titulo){
+		Projeto projetoEncontrado = aux.buscaPorTitulo(titulo);
+		if (projetoEncontrado == null) {
+			result.notFound();
+		} else {
+			aux.remover(projetoEncontrado);
+			result.redirectTo(this).lista();
+		}
+		
 	}
 }

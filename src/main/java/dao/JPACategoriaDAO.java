@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import modelo.Categoria;
 
+
 @Transactional
 public class JPACategoriaDAO implements CategoriaDAO {
 	
@@ -49,5 +50,11 @@ public class JPACategoriaDAO implements CategoriaDAO {
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+	@Override
+	public void remover(Categoria categoria) {
+		 Categoria CatASerRemovida = manager.getReference(Categoria.class, categoria.getId());
+		 this.manager.remove(CatASerRemovida);
+		
 	}
 }

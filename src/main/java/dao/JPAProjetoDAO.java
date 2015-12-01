@@ -51,4 +51,10 @@ public class JPAProjetoDAO implements ProjetoDAO {
 			return null;
 		}
 	}
+	@Override
+	public void remover(Projeto projeto) {
+		 Projeto ProjASerRemovido = manager.getReference(Projeto.class, projeto.getId());
+		 this.manager.remove(ProjASerRemovido);
+		
+	}
 }

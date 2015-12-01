@@ -2,6 +2,7 @@ package modelo;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -10,14 +11,15 @@ import java.util.Calendar;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -41,6 +43,10 @@ public class Projeto {
 	private Calendar dataInicio;
 	
 	private Calendar dataFim;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="PROJETO_ID")
+	private List<Atividade> atividades;
 	
 	@NotEmpty 
 	private String nomeDoCoordenador;
@@ -144,5 +150,20 @@ public class Projeto {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+	public void addAtividade(Atividade atividade) {
+		if(atividades == null){
+			atividades = new ArrayList<Atividade>();
+		}
+		this.atividades.add(atividade);
+	}
+
+
+	public void setAtividades(List<Atividade> atividades) {
+		this.atividades = atividades;
 	}
 }
