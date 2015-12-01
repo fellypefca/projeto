@@ -7,10 +7,7 @@
         <class>modelo.Endereco</class>
         <class>modelo.Departamento</class>
         <class>modelo.Orgao</class>
-<<<<<<< HEAD
         <class>modelo.Atividade</class>
-=======
->>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
         <properties>
           <property name="hibernate.connection.username" value="root"/>
           <property name="hibernate.connection.password" value="root"/>
