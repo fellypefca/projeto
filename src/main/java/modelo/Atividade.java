@@ -11,7 +11,10 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Atividade {
+<<<<<<< HEAD
 	
+=======
+>>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
 	@Id
 	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
@@ -20,7 +23,11 @@ public class Atividade {
 	private Calendar dataInicio;
 	
 	private Calendar dataFim;
+<<<<<<< HEAD
 	 
+=======
+	
+>>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
 	private String descricao;
 
 	public String getDataInicio() {
