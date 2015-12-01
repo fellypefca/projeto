@@ -8,11 +8,8 @@ import javax.inject.Inject;
 
 
 
-<<<<<<< HEAD
 
 import modelo.Atividade;
-=======
->>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
