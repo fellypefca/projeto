@@ -8,8 +8,6 @@ import javax.inject.Inject;
 
 
 
-
-import modelo.Atividade;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;

@@ -11,7 +11,6 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Atividade {
-	
 	@Id
 	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
@@ -20,8 +19,10 @@ public class Atividade {
 	private Calendar dataInicio;
 	
 	private Calendar dataFim;
-	 
+	
 	private String descricao;
+	
+	private String tituloProj;
 
 	public String getDataInicio() {
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -96,6 +97,14 @@ public class Atividade {
 		} else if (!descricao.equals(other.descricao))
 			return false;
 		return true;
+	}
+
+	public String getTituloProj() {
+		return tituloProj;
+	}
+
+	public void setTituloProj(String tituloProj) {
+		this.tituloProj = tituloProj;
 	}
 
 }

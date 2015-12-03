@@ -44,12 +44,13 @@ public class Projeto {
 	
 	private Calendar dataFim;
 	
+	@NotEmpty 
+	private String nomeDoCoordenador;
+	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="PROJETO_ID")
 	private List<Atividade> atividades;
 	
-	@NotEmpty 
-	private String nomeDoCoordenador;
 	
 //	@ManyToMany
 //    @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
@@ -151,7 +152,7 @@ public class Projeto {
 			return false;
 		return true;
 	}
-
+	
 	public List<Atividade> getAtividades() {
 		return atividades;
 	}
