@@ -56,7 +56,7 @@ public class AtividadeController {
 			tempProj.addAtividade(atividade);
 			auxProj.cadastra(tempProj);
 			aux.cadastra(atividade);
-			result.redirectTo(this).lista();
+			result.redirectTo(this).listaProj(atividade.getTituloProj());
 		}
 		else
 		{
@@ -67,7 +67,14 @@ public class AtividadeController {
 	}
 
 	public List<Atividade> lista() {
+		
 		return aux.todasAsAtividades();
+	}
+	
+	public List<Atividade> listaProj(String titulo) {
+		Projeto projeto = auxProj.buscaPorTitulo(titulo);
+		result.include(projeto);
+		return auxProj.todasAsAtividades(titulo);
 	}
 
 	public void edita(Long id) {

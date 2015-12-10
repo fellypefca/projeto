@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <title>Projeto</title>
   </head>
   
@@ -118,7 +119,7 @@
                   <th class="active">Título</th>
                   <th class="active">Descrição</th>
                   <th class="active">Coordenador</th>
-                   <th class="active">Cadastrar</th>
+                   <th class="active">Ver</th>
                   <th class="active">Editar</th>
                    <th class="active">Remover</th>
                 </tr>
@@ -129,8 +130,7 @@
                   <td>${projeto.titulo}</td>
                   <td>${projeto.descricao}</td>
                   <td>${projeto.nomeDoCoordenador}</td>
-                  <c:set var= "titulo" scope = "session" value="${projeto.titulo}" />
-                   <td><a href="${linkTo[AtividadeController].formulario}">Atividade</a></td>
+                   <td><a href="${linkTo[AtividadeController].listaProj}?titulo=${projeto.titulo}">Atividades</a></td>
                   <td class="hidden-xs">
                     <a href="${linkTo[ProjetoController].edita}?titulo=${projeto.titulo}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
                 </td>

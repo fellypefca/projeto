@@ -8,10 +8,7 @@
         <class>modelo.Departamento</class>
         <class>modelo.Orgao</class>
         <class>modelo.Atividade</class>
-<<<<<<< HEAD
         <class>modelo.Pesquisador</class>
-=======
->>>>>>> 9308eadc4d851d9e2e1a7509973803253b8f88ff
         <properties>
           <property name="hibernate.connection.username" value="root"/>
           <property name="hibernate.connection.password" value="root"/>

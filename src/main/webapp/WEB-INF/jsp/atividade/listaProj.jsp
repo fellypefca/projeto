@@ -100,7 +100,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Atividades Registradas</h1>
+          	<c:set var= "titulo" scope = "session" value="${projeto.titulo}" />
+            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Atividades Registradas no Projeto ${titulo}</h1>
             <p></p>
             <p></p>
           </div>
@@ -143,6 +144,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div align="center">
+    <a href="${linkTo[AtividadeController].formulario}" class="btn btn-primary"> Adicionar Atividade</a>
     </div>
   </body>
 
