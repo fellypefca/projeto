@@ -70,11 +70,7 @@
             <li class="dropdown">
         				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
         				<ul class="dropdown-menu">
-<<<<<<< HEAD
            					 <li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
-=======
-           					 <li><a href="${linkTo[AtividadeController].formulario}">Atividades</a></li>
->>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
            					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
            					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
        					 </ul>

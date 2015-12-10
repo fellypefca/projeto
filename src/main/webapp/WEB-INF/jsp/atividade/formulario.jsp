@@ -104,11 +104,7 @@
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li>
-<<<<<<< HEAD
                   <a href="${linkTo[AtividadeController].lista}">Atividades</a>
-=======
-                  <a href="${linkTo[AtividadeController].formulario}">Atividades</a>
->>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
                 </li>
                 <li>
                   <a href="${linkTo[ProjetoController].formulario}">Cadastrar</a>
@@ -174,11 +170,9 @@
         <p></p>
         <form id="form" class="text-left" action="${linkTo[AtividadeController].salva }"
         method="post">
+      <input class="form-control" type="hidden" name="atividade.tituloProj"
+							value="${titulo}" />
           <div class="form-group" id="descricao">
-<<<<<<< HEAD
-          	<input type="hidden" name="titulo" value="${titulo}">?
-=======
->>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
           	<input type="hidden" name="atividade.id" value="${atividade.id}">
             <label class="control-label">Descrição</label>
             <textarea class="form-control" name="atividade.descricao">${atividade.descricao}</textarea>

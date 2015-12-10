@@ -84,14 +84,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Categorias Cadastradas</h1>
+            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Lista</h1>
             <p></p>
             <p></p>
           </div>
         </div>
       </div>
     </div>
-    
+    <c:set var="lista" value="${stringList}"/> 
     <div class="section">
       <div class="container">
         <div class="row">
@@ -99,21 +99,13 @@
             <table class="table table-bordered table-condensed table-striped">
               <thead>
                 <tr>
-                  <th class="active">Tipo de Categorias</th>
- 				 <th class="active"> Editar</th>
- 				 <th class="active"> Remover</th>
+                  <th class="active">Titulo</th>
                 </tr>
               </thead>
               <tbody>
-              <c:forEach items="${categoriaList}" var="categoria">
+              <c:forEach items="${stringList}" var="projeto">
                 <tr>
-                  <td>${categoria.tipo}</td>
-                  <td class="hidden-xs">
-                    <a href="${linkTo[CategoriaController].edita}?tipo=${categoria.tipo}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
-                    </td>
-                    <td class="hidden-xs">
-                    <a href="${linkTo[CategoriaController].remover}?tipo=${categoria.tipo}"> <i class="fa fa-2x fa-close fa-fw text-danger"></i></a>
-                    </td>
+                  <td>${projeto}</td>
                 </tr>
                 </c:forEach>
               </tbody>
@@ -123,5 +115,46 @@
       </div>
     </div>
   </body>
-
 </html>
+
+<tr>
+    <td>
+        <select name="<c:out value="${param.leftId}"/>" multiple="multiple"
+            onDblClick="moveSelectedOptions(this,$('<c:out value="${param.rightId}"/>'),true)"
+            id="<c:out value="${param.leftId}"/>" size="5">
+    <c:if test="${leftList != null}">
+        <c:forEach var="list" items="${leftList}" varStatus="status">
+            <option value="<c:out value="${list.value}"/>">
+                <c:out value="${list.label}" escapeXml="false" />
+            </option>
+        </c:forEach>
+    </c:if>
+        </select>
+    </td>
+    <td class="moveOptions">
+        <button name="moveRight" id="moveRight<c:out value="${param.listCount}"/>" type="button" 
+            onclick="moveSelectedOptions($('<c:out value="${param.leftId}"/>'),$('<c:out value="${param.rightId}"/>'),true)">
+            &gt;&gt;</button><br />
+        <button name="moveAllRight" id="moveAllRight<c:out value="${param.listCount}"/>" type="button"
+            onclick="moveAllOptions($('<c:out value="${param.leftId}"/>'),$('<c:out value="${param.rightId}"/>'),true)">
+            All &gt;&gt;</button><br />
+        <button name="moveLeft" id="moveLeft<c:out value="${param.listCount}"/>" type="button"
+            onclick="moveSelectedOptions($('<c:out value="${param.rightId}"/>'),$('<c:out value="${param.leftId}"/>'),true)">
+            &lt;&lt;</button><br />
+        <button name="moveAllLeft" id="moveAllLeft<c:out value="${param.listCount}"/>" type="button"
+            onclick="moveAllOptions($('<c:out value="${param.rightId}"/>'),$('<c:out value="${param.leftId}"/>'),true)">
+            All &lt;&lt;</button>
+    </td>
+    <td>
+        <select name="<c:out value="${param.rightId}"/>" multiple="multiple"
+            id="<c:out value="${param.rightId}"/>" size="5">
+    <c:if test="${rightList != null}">
+        <c:forEach var="list" items="${rightList}" varStatus="status">
+            <option value="<c:out value="${list.value}"/>">
+                <c:out value="${list.label}" escapeXml="false"/>
+            </option>
+        </c:forEach>
+    </c:if>
+        </select>
+    </td>
+</tr>

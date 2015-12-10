@@ -2,6 +2,7 @@ package controller;
 
 import icadastra.ICadastraProjeto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,7 +10,6 @@ import javax.inject.Inject;
 
 
 
-import modelo.Atividade;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
@@ -77,5 +77,15 @@ public class ProjetoController {
 			result.redirectTo(this).lista();
 		}
 		
+	}
+	
+	public List<String> teste() {
+		List<Projeto> listaAx = new ArrayList<Projeto>();
+		listaAx = aux.todosOsProjetos();
+		List<String> listaProj = new ArrayList<String>();
+		for (Projeto p: listaAx){
+			listaProj.add(p.getTitulo());
+		}
+		return listaProj;
 	}
 }

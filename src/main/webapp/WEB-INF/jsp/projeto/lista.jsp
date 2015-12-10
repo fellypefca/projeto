@@ -56,11 +56,7 @@
             <li class="dropdown">
         				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
         				<ul class="dropdown-menu">
-<<<<<<< HEAD
            					<li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
-=======
-           					<li><a href="${linkTo[AtividadeController].formulario}">Atividades</a></li>
->>>>>>> e69d49b2ee2079273be650bff33075e4a34f42a2
            					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
            					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
        					 </ul>
@@ -122,7 +118,7 @@
                   <th class="active">Título</th>
                   <th class="active">Descrição</th>
                   <th class="active">Coordenador</th>
-                  <th class="active">Cadastrar</th>
+                   <th class="active">Cadastrar</th>
                   <th class="active">Editar</th>
                    <th class="active">Remover</th>
                 </tr>
@@ -133,7 +129,8 @@
                   <td>${projeto.titulo}</td>
                   <td>${projeto.descricao}</td>
                   <td>${projeto.nomeDoCoordenador}</td>
-                  <td><a href="${linkTo[AtividadeController].formulario}?titulo=${projeto.titulo}">Atividade</a></td>
+                  <c:set var= "titulo" scope = "session" value="${projeto.titulo}" />
+                   <td><a href="${linkTo[AtividadeController].formulario}">Atividade</a></td>
                   <td class="hidden-xs">
                     <a href="${linkTo[ProjetoController].edita}?titulo=${projeto.titulo}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
                 </td>

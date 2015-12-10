@@ -20,13 +20,13 @@ import br.com.caelum.vraptor.validator.Validator;
 public class AtividadeController {
 	
 	private ICadastraAtividade aux;
-	private ICadastraProjeto projaux;
+	private ICadastraProjeto auxProj;
 	private Result result;
 	private Validator validator;
 	
 	@Inject
-	public AtividadeController(ICadastraAtividade aux, Result result, Validator validator) {
-		
+	public AtividadeController(ICadastraAtividade aux, Result result, Validator validator, ICadastraProjeto auxProj) {
+		this.auxProj = auxProj;
 		this.aux = aux;
 		this.result = result;
 		this.validator = validator;
@@ -37,29 +37,32 @@ public class AtividadeController {
 	
 	public void index() {}
 	
-	public void formulario(String titulo) {}
+	public void formulario() {}
 
-	public void salva(Atividade atividade, String titulo) throws Exception{
+	public void salva(Atividade atividade) throws Exception{
 		
 		Atividade teste = aux.buscaPorId(atividade.getId());
 		
 		if(teste == null || (!teste.equals(atividade))){
-			
-			Projeto projetoEncontrado = projaux.buscaPorTitulo(titulo);
-			
 			validator.validate(atividade);
-			validator.onErrorRedirectTo(this).formulario(titulo);
-			
-			projetoEncontrado.addAtividade(atividade);
+			validator.onErrorRedirectTo(this).formulario();
 			aux.cadastra(atividade);
-			projaux.cadastra(projetoEncontrado);
 			
+			String titulo = atividade.getTituloProj();
+			Projeto tempProj = auxProj.buscaPorTitulo(titulo);
+			if (tempProj == null){
+				aux.remover(atividade);
+				result.redirectTo(this).index();
+			}
+			tempProj.addAtividade(atividade);
+			auxProj.cadastra(tempProj);
+			aux.cadastra(atividade);
 			result.redirectTo(this).lista();
 		}
 		else
 		{
 			validator.add(new I18nMessage("Erro","Atividade.existente"));
-			validator.onErrorRedirectTo(this).formulario(titulo);
+			validator.onErrorRedirectTo(this).formulario();
 		}
 			
 	}
@@ -68,14 +71,14 @@ public class AtividadeController {
 		return aux.todasAsAtividades();
 	}
 
-	public void edita(Long id,String titulo) {
+	public void edita(Long id) {
 		Atividade AtividadeEncontrado = aux.buscaPorId(id);
 		if (AtividadeEncontrado == null) {
 			result.notFound();
 		} else {
 			result.include(AtividadeEncontrado);
 
-			result.of(this).formulario(titulo);
+			result.of(this).formulario();
 		}
 	}
 	public void remover(Long id){
