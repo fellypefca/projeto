@@ -20,8 +20,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<title>Projeto</title>
+<title>Atividades</title>
   </head>
   
   <meta charset="utf-8">
@@ -57,7 +56,7 @@
             <li class="dropdown">
         				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
         				<ul class="dropdown-menu">
-           					<li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
+           					 <li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
            					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
            					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
        					 </ul>
@@ -101,7 +100,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Projetos Cadastrados</h1>
+          	<c:set var= "titulo" scope = "session" value="${projeto.titulo}" />
+            <h1 class="text-center text-primary" style="COLOR: #397cbb;">Atividades Registradas no Projeto ${titulo}</h1>
             <p></p>
             <p></p>
           </div>
@@ -116,35 +116,26 @@
             <table class="table table-bordered table-condensed table-striped">
               <thead>
                 <tr>
-                  <th class="active">Título</th>
+                  <th class="active">Projeto</th>
                   <th class="active">Descrição</th>
-                  <th class="active">Coordenador</th>
-<<<<<<< HEAD
-                   <th class="active">Cadastrar</th>
-=======
-                   <th class="active">Ver</th>
->>>>>>> d29d6909e15becd88d936378e2b774c60b78b373
+                  <th class="active">Data de início</th>
+                  <th class="active">Data de término</th>
                   <th class="active">Editar</th>
                    <th class="active">Remover</th>
                 </tr>
               </thead>
               <tbody>
-              <c:forEach items="${projetoList}" var="projeto">
+              <c:forEach items="${atividadeList}" var="atividade">
                 <tr>
-                  <td>${projeto.titulo}</td>
-                  <td>${projeto.descricao}</td>
-                  <td>${projeto.nomeDoCoordenador}</td>
-<<<<<<< HEAD
-                  <c:set var= "titulo" scope = "session" value="${projeto.titulo}" />
-                   <td><a href="${linkTo[AtividadeController].formulario}">Atividade</a></td>
-=======
-                   <td><a href="${linkTo[AtividadeController].listaProj}?titulo=${projeto.titulo}">Atividades</a></td>
->>>>>>> d29d6909e15becd88d936378e2b774c60b78b373
+                  <td>${atividade.tituloProj}</td>
+                  <td>${atividade.descricao}</td>
+                  <td>${atividade.dataInicio}</td>
+                  <td>${atividade.dataFim}</td>
                   <td class="hidden-xs">
-                    <a href="${linkTo[ProjetoController].edita}?titulo=${projeto.titulo}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
+                    <a href="${linkTo[AtividadeController].edita}?id=${atividade.id}"> <i class="fa fa-2x fa-fw text-primary fa-edit"></i></a>
                 </td>
                 <td>
-                    <a href="${linkTo[ProjetoController].remover}?titulo=${projeto.titulo}"> <i class="fa fa-2x fa-close fa-fw text-danger"></i></a>
+                    <a href="${linkTo[AtividadeController].remover}?id=${atividade.id}"> <i class="fa fa-2x fa-close fa-fw text-danger"></i></a>
                     </td>
                 </tr>
                 </c:forEach>
@@ -153,6 +144,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div align="center">
+    <a href="${linkTo[AtividadeController].formulario}" class="btn btn-primary"> Adicionar Atividade</a>
     </div>
   </body>
 

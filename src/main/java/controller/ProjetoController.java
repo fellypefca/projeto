@@ -9,7 +9,10 @@ import javax.inject.Inject;
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d29d6909e15becd88d936378e2b774c60b78b373
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;

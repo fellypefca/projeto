@@ -51,13 +51,20 @@ public class AtividadeController {
 			String titulo = atividade.getTituloProj();
 			Projeto tempProj = auxProj.buscaPorTitulo(titulo);
 			if (tempProj == null){
+<<<<<<< HEAD
 				aux.remover(atividade);
+=======
+>>>>>>> d29d6909e15becd88d936378e2b774c60b78b373
 				result.redirectTo(this).index();
 			}
 			tempProj.addAtividade(atividade);
 			auxProj.cadastra(tempProj);
 			aux.cadastra(atividade);
+<<<<<<< HEAD
 			result.redirectTo(this).lista();
+=======
+			result.redirectTo(this).listaProj(atividade.getTituloProj());
+>>>>>>> d29d6909e15becd88d936378e2b774c60b78b373
 		}
 		else
 		{
@@ -68,7 +75,14 @@ public class AtividadeController {
 	}
 
 	public List<Atividade> lista() {
+		
 		return aux.todasAsAtividades();
+	}
+	
+	public List<Atividade> listaProj(String titulo) {
+		Projeto projeto = auxProj.buscaPorTitulo(titulo);
+		result.include(projeto);
+		return auxProj.todasAsAtividades(titulo);
 	}
 
 	public void edita(Long id) {

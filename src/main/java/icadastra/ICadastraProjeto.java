@@ -2,6 +2,7 @@ package icadastra;
 
 import java.util.List;
 
+import modelo.Atividade;
 import modelo.Projeto;
 
 public interface ICadastraProjeto {
@@ -11,6 +12,8 @@ public interface ICadastraProjeto {
 	List<Projeto> todosOsProjetos();
 
 	Projeto buscaPorTitulo(String titulo);
+	
+	List<Atividade> todasAsAtividades(String titulo);
 	
 	void remover(Projeto projeto);
 

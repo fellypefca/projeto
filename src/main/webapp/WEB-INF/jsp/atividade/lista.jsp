@@ -115,7 +115,7 @@
             <table class="table table-bordered table-condensed table-striped">
               <thead>
                 <tr>
-                  <th class="active">Id</th>
+                  <th class="active">Projeto</th>
                   <th class="active">Descrição</th>
                   <th class="active">Data de início</th>
                   <th class="active">Data de término</th>
@@ -126,7 +126,7 @@
               <tbody>
               <c:forEach items="${atividadeList}" var="atividade">
                 <tr>
-                  <td>${atividade.id}</td>
+                  <td>${atividade.tituloProj}</td>
                   <td>${atividade.descricao}</td>
                   <td>${atividade.dataInicio}</td>
                   <td>${atividade.dataFim}</td>

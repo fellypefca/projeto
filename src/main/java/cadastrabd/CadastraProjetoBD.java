@@ -11,7 +11,9 @@ import javax.inject.Inject;
 
 
 
+
 import dao.ProjetoDAO;
+import modelo.Atividade;
 import modelo.Projeto;
 
 
@@ -37,6 +39,11 @@ public class CadastraProjetoBD implements ICadastraProjeto {
 	@Override
 	public List<Projeto> todosOsProjetos() {
 		return this.dao.todos();
+	}
+	@Override
+	public List<Atividade> todasAsAtividades(String titulo) {
+		Projeto encontrado = buscaPorTitulo(titulo);
+		return encontrado.getAtividades();
 	}
 
 	@Override
