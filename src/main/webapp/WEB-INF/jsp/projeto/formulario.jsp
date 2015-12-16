@@ -92,7 +92,7 @@
          {
             if (InvForm.SelBranch[x].selected)
             {
-             SelBranchVal = SelBranchVal + ", " + InvForm.SelBranch[x];
+             SelBranchVal = SelBranchVal + ", " + InvForm.SelBranch[x].value;
              
             }
          }
@@ -233,6 +233,7 @@
           
           <input type="hidden" id="projeto.cnpjs" name="projeto.cnpjs" />
           
+          <label class="control-label">teste</label>
           
           <ul class="errors">
 						<c:forEach items="${errors}" var="error">
