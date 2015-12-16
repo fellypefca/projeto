@@ -85,19 +85,19 @@
        function GetInventory()
        {
          var InvForm = document.forms.InventoryList;
-         var SelBranchVal = new Array();
+         var SelBranchVal = "";
          var x = 0;
 
          for (x=0;x< InvForm.SelBranch.length;x++)
          {
             if (InvForm.SelBranch[x].selected)
             {
-             SelBranchVal.push(InvForm.SelBranch[x].value);
+             SelBranchVal = SelBranchVal + ", " + InvForm.SelBranch[x];
              
             }
          }
          alert(SelBranchVal);
-         document.getElementById("projeto.orgao").value=SelBranchVal;
+         document.getElementById("projeto.cnpjs").value=SelBranchVal;
        }
       </script>
     <title>Cadastro de Projetos</title>
@@ -188,7 +188,7 @@
 		<label class="control-label">Órgãos</label>
 			<select name="SelBranch" class="bnotes" size="5" multiple="multiple">
 				<c:forEach items="${orgao}" var="orgao">
-				<option value="${orgao}">${orgao.nome}</option>
+				<option value="${orgao.cnpj}">${orgao.nome}</option>
 				</c:forEach>
 				</select>
 				<p class="help-block">Segure ctrl para selecionar mais de um orgão</p>
@@ -231,7 +231,7 @@
             name="projeto.dataFim" value="${projeto.dataFim}">
           </div>
           
-          <input type="hidden" id="projeto.orgao"/>
+          <input type="hidden" id="projeto.cnpjs" name="projeto.cnpjs" />
           
           
           <ul class="errors">

@@ -40,6 +40,8 @@ public class Projeto {
 
 	private String descricao;
 	
+	private String cnpjs;
+	
 	private String palavrasChave;
 
 	private Calendar dataInicio;
@@ -167,5 +169,13 @@ public class Projeto {
 
 	public void setAtividades(List<Atividade> atividades) {
 		this.atividades = atividades;
+	}
+
+	public String getCnpjs() {
+		return cnpjs;
+	}
+
+	public void setCnpjs(String cnpjs) {
+		this.cnpjs = cnpjs;
 	}
 }

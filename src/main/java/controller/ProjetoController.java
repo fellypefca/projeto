@@ -4,9 +4,14 @@ import icadastra.ICadastraOrgao;
 import icadastra.ICadastraPesquisador;
 import icadastra.ICadastraProjeto;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
+
+
+
 
 
 
@@ -66,6 +71,21 @@ public class ProjetoController {
 		validator.validate(projeto);
 		validator.onErrorRedirectTo(this).formulario();
 		aux.cadastra(projeto);
+		
+		String[] tmp = projeto.getCnpjs().split(Pattern.quote(", "));
+		List<Orgao> orgaos = new ArrayList<Orgao>(); 
+		for(String cnpj: tmp){
+			System.out.println(cnpj);
+			Orgao o = auxOrg.buscaPorCnpj(cnpj);
+			orgaos.add(o);
+		}
+		
+		projeto.setOrgao(orgaos);
+		
+		validator.validate(projeto);
+		validator.onErrorRedirectTo(this).formulario();
+		aux.cadastra(projeto);
+		
 		result.redirectTo(this).lista();
 //	}
 	}
