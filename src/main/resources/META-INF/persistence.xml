@@ -9,6 +9,7 @@
         <class>modelo.Orgao</class>
         <class>modelo.Atividade</class>
         <class>modelo.Pesquisador</class>
+        <class>modelo.Usuarios</class>
         <properties>
           <property name="hibernate.connection.username" value="root"/>
           <property name="hibernate.connection.password" value="root"/>

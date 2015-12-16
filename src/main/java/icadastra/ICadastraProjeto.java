@@ -3,6 +3,7 @@ package icadastra;
 import java.util.List;
 
 import modelo.Atividade;
+import modelo.Orgao;
 import modelo.Projeto;
 
 public interface ICadastraProjeto {
@@ -16,5 +17,6 @@ public interface ICadastraProjeto {
 	List<Atividade> todasAsAtividades(String titulo);
 	
 	void remover(Projeto projeto);
+	
 
 }

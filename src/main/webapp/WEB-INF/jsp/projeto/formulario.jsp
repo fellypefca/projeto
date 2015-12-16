@@ -61,7 +61,6 @@
 		        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
 		        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
 		        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-
 		    });
 		});
 </script>
@@ -79,10 +78,28 @@
 			        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
 			        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
 			        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-
 		    });
 		});
 </script>
+   <script language="JavaScript">
+       function GetInventory()
+       {
+         var InvForm = document.forms.InventoryList;
+         var SelBranchVal = new Array();
+         var x = 0;
+
+         for (x=0;x< InvForm.SelBranch.length;x++)
+         {
+            if (InvForm.SelBranch[x].selected)
+            {
+             SelBranchVal.push(InvForm.SelBranch[x].value);
+             
+            }
+         }
+         alert(SelBranchVal);
+         document.getElementById("projeto.orgao").value=SelBranchVal;
+       }
+      </script>
     <title>Cadastro de Projetos</title>
   </head>
   
@@ -166,6 +183,20 @@
       <div class="col-md-12 div-ident text-left">
         <p></p>
         <p></p>
+        <div>
+		<form name="InventoryList" method="post">
+		<label class="control-label">Órgãos</label>
+			<select name="SelBranch" class="bnotes" size="5" multiple="multiple">
+				<c:forEach items="${orgao}" var="orgao">
+				<option value="${orgao}">${orgao.nome}</option>
+				</c:forEach>
+				</select>
+				<p class="help-block">Segure ctrl para selecionar mais de um orgão</p>
+			<input type="button" name="ViewReport" value="View" class="bnotes"
+							onclick="GetInventory();"> 
+		</form>
+		</div>
+		
         <form id="form" class="text-left" action="${linkTo[ProjetoController].salva }"
         method="post">
           <div class="form-group">
@@ -199,6 +230,10 @@
             <input class="form-control" id="datepicker2" type="text"
             name="projeto.dataFim" value="${projeto.dataFim}">
           </div>
+          
+          <input type="hidden" id="projeto.orgao"/>
+          
+          
           <ul class="errors">
 						<c:forEach items="${errors}" var="error">
 							<li>

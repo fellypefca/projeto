@@ -19,6 +19,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -44,22 +46,21 @@ public class Projeto {
 	
 	private Calendar dataFim;
 	
-	@NotEmpty 
+	 
 	private String nomeDoCoordenador;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="PROJETO_ID")
 	private List<Atividade> atividades;
 	
+   @ManyToMany
+   @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
+	private List<Orgao> orgao;
 	
-//	@ManyToMany
-//    @JoinTable(name="Projeto_has_Orgaos", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="orgao_id")})
-//	private List<Orgao> orgao;
 	
-	
-//	@ManyToMany
-//    @JoinTable(name="Projeto_has_Pesquisadores", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="pesquisador_id")})
-//	private List<Pesquisador> pesquisadores;
+	@ManyToMany
+    @JoinTable(name="Projeto_has_Pesquisadores", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="pesquisador_id")})
+	private List<Pesquisador> pesquisadores;
 	
 	public Projeto() 
 	{}
@@ -112,21 +113,21 @@ public class Projeto {
 		this.nomeDoCoordenador = nomeDoCoordenador;
 	}
 	
-//	public List<Orgao> getOrgao() {
-//		return orgao;
-//	}
-//	
-//	public void setOrgao(List<Orgao> orgao) {
-//		this.orgao = orgao;
-//	}
+	public List<Orgao> getOrgao() {
+		return orgao;
+	}
 	
-//	public List<Pesquisador> getPesquisadoresLista() {
-//		return pesquisadores;
-//	}
-//	
-//	public void setPesquisadoresLista(List<Pesquisador> pesquisadores) {
-//		this.pesquisadores = pesquisadores;
-//	}
+	public void setOrgao(List<Orgao> orgao) {
+		this.orgao = orgao;
+	}
+	
+	public List<Pesquisador> getPesquisadoresLista() {
+		return pesquisadores;
+	}
+	
+	public void setPesquisadoresLista(List<Pesquisador> pesquisadores) {
+		this.pesquisadores = pesquisadores;
+	}
 	
 	@Override
 	public int hashCode() {

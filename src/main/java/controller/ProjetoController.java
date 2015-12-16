@@ -1,5 +1,7 @@
 package controller;
 
+import icadastra.ICadastraOrgao;
+import icadastra.ICadastraPesquisador;
 import icadastra.ICadastraProjeto;
 
 import java.util.List;
@@ -8,6 +10,14 @@ import javax.inject.Inject;
 
 
 
+
+
+
+
+
+import modelo.Categoria;
+import modelo.Orgao;
+import modelo.Pesquisador;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
@@ -18,21 +28,28 @@ import br.com.caelum.vraptor.validator.Validator;
 public class ProjetoController {
 
 	private ICadastraProjeto aux;
+	private ICadastraOrgao auxOrg;
+	private ICadastraPesquisador auxPes;
 	private Result result;
 	private Validator validator;
 
 	@Inject
-	public ProjetoController(ICadastraProjeto aux, Result result,
+	public ProjetoController(ICadastraProjeto aux, ICadastraOrgao auxOrg, ICadastraPesquisador auxPes, Result result,
 			Validator validator) {
 		
 		this.aux = aux;
 		this.result = result;
 		this.validator = validator;
+		this.auxOrg = auxOrg;
+		this.auxPes = auxPes;
 	}
 	
 	ProjetoController() {}
 	public void index() {}
-	public void formulario() {}
+	public void formulario() {
+		result.include("orgao", listaOrgao());
+		result.include("pesquisador", listaPes());
+	}
 
 	public void salva(Projeto projeto) {
 		
@@ -74,6 +91,20 @@ public class ProjetoController {
 			aux.remover(projetoEncontrado);
 			result.redirectTo(this).lista();
 		}
+		
+	}
+	
+	public List<Orgao> listaOrgao() 
+	{
+		return auxOrg.todosOsOrgaos();
+	}
+	
+	public List<Pesquisador> listaPes() 
+	{
+		return auxPes.todosOsPesquisadores();
+	}
+	
+	public void lista2() {
 		
 	}
 }
