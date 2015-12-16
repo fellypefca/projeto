@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import modelo.Categoria;
 import modelo.Departamento;
+import modelo.Endereco;
 import modelo.Pesquisador;
 
 
@@ -67,6 +68,13 @@ private final EntityManager manager;
 	public List<Departamento> listaDepartamento() {
 		return this.manager
 				.createQuery("select d from Departamento d", Departamento.class)
+				.getResultList();
+	}
+	
+	
+	public List<Endereco> listaEndereco() {
+		return this.manager
+				.createQuery("select e from Endereco e", Endereco.class)
 				.getResultList();
 	}
 

@@ -7,10 +7,7 @@ import modelo.Categoria;
 public interface ICadastraCategoria {
 
 	void cadastra(Categoria categoria);
-
 	List<Categoria> todosAsCategorias();
-
-	Categoria buscaPorNome(String categoria)
-	;
+	Categoria buscaPorNome(String categoria);
 	void remover(Categoria categoria);
 }

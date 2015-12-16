@@ -11,9 +11,11 @@ import javax.inject.Inject;
 
 
 
+
 import dao.PesquisadorDAO;
 import modelo.Categoria;
 import modelo.Departamento;
+import modelo.Endereco;
 import modelo.Pesquisador;
 
 
@@ -50,11 +52,15 @@ public class CadastraPesquisadorBD implements ICadastraPesquisador {
 	}
 	@Override
 	public List<Departamento> listaDepartamento() {
-		// TODO Auto-generated method stub
 		return this.dao.listaDepartamento();
 	}
+	
 	@Override
 	public void remover(Pesquisador pesquisador) {
 		this.dao.remover(pesquisador);
+	}
+	@Override
+	public List<Endereco> listaEndereco() {
+		return this.dao.listaEndereco();
 	}
 }

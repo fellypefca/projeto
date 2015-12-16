@@ -47,8 +47,9 @@ public class Pesquisador {
 	@JoinColumn(name="CATEGORIA_ID", nullable = true)
 	private Categoria categoria;
 	
-//	@JoinColumn
-//	private Endereco endereco;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="ENDERECO_ID", nullable = true)
+	private Endereco endereco;
 
 	private String lattesUrl;
 	
@@ -78,12 +79,14 @@ public class Pesquisador {
 	public void setId(Long id) {
 		Id = id;
 	}
-//	public Endereco getEndereco() {
-//		return endereco;
-//	}
-//	public void setEndereco(Endereco endereco) {
-//		this.endereco = endereco;
-//	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	
 	public String getTelefone() {
 		return telefone;
 	}
