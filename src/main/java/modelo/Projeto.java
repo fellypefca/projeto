@@ -42,6 +42,8 @@ public class Projeto {
 	
 	private String cnpjs;
 	
+	private String pesquisadores;
+	
 	private String palavrasChave;
 
 	private Calendar dataInicio;
@@ -62,7 +64,7 @@ public class Projeto {
 	
 	@ManyToMany
     @JoinTable(name="Projeto_has_Pesquisadores", joinColumns={@JoinColumn(name="projeto_id")}, inverseJoinColumns={@JoinColumn(name="pesquisador_id")})
-	private List<Pesquisador> pesquisadores;
+	private List<Pesquisador> pesquisador;
 	
 	public Projeto() 
 	{}
@@ -124,11 +126,11 @@ public class Projeto {
 	}
 	
 	public List<Pesquisador> getPesquisadoresLista() {
-		return pesquisadores;
+		return pesquisador;
 	}
 	
-	public void setPesquisadoresLista(List<Pesquisador> pesquisadores) {
-		this.pesquisadores = pesquisadores;
+	public void setPesquisadoresLista(List<Pesquisador> pesquisador) {
+		this.pesquisador = pesquisador;
 	}
 	
 	@Override
@@ -177,5 +179,13 @@ public class Projeto {
 
 	public void setCnpjs(String cnpjs) {
 		this.cnpjs = cnpjs;
+	}
+
+	public String getPesquisadores() {
+		return pesquisadores;
+	}
+
+	public void setPesquisadores(String pesquisadores) {
+		this.pesquisadores = pesquisadores;
 	}
 }

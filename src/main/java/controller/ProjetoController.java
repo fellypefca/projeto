@@ -79,7 +79,15 @@ public class ProjetoController {
 			Orgao o = auxOrg.buscaPorCnpj(cnpj);
 			orgaos.add(o);
 		}
+		String[] pes = projeto.getPesquisadores().split(Pattern.quote(", "));
+		List<Pesquisador> pesquisadores = new ArrayList<Pesquisador>();
+		for(String cpf: pes){
+			System.out.println(cpf);
+			Pesquisador p = auxPes.buscaPorCPF(cpf);
+			pesquisadores.add(p);
+		}
 		
+		projeto.setPesquisadoresLista(pesquisadores);
 		projeto.setOrgao(orgaos);
 		
 		validator.validate(projeto);

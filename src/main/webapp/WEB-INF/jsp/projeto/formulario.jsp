@@ -100,6 +100,27 @@
          document.getElementById("projeto.cnpjs").value=SelBranchVal;
        }
       </script>
+      
+         <script language="JavaScript">
+       function GetInventoryPes()
+       {
+         var Form = document.forms.InventoryListPes;
+         var Pesquisadores = "";
+         var x = 0;
+
+         for (x=0;x< Form.SelBranch.length;x++)
+         {
+            if (Form.SelBranch[x].selected)
+            {
+            	Pesquisadores  = Pesquisadores  + ", " + Form.SelBranch[x].value;
+             
+            }
+         }
+         alert(Pesquisadores);
+         document.getElementById("projeto.pesquisadores").value=Pesquisadores;
+       }
+      </script>
+      
     <title>Cadastro de Projetos</title>
   </head>
   
@@ -183,6 +204,7 @@
       <div class="col-md-12 div-ident text-left">
         <p></p>
         <p></p>
+        
         <div>
 		<form name="InventoryList" method="post">
 		<label class="control-label">Órgãos</label>
@@ -194,6 +216,20 @@
 				<p class="help-block">Segure ctrl para selecionar mais de um orgão</p>
 			<input type="button" name="ViewReport" value="View" class="bnotes"
 							onclick="GetInventory();"> 
+		</form>
+		</div>
+		
+		<div>
+		<form name="InventoryListPes" method="post">
+		<label class="control-label">Pesquisadores</label>
+			<select name="SelBranch" class="bnotes" size="5" multiple="multiple">
+				<c:forEach items="${pesquisador}" var="pesquisador">
+				<option value="${pesquisador.cpf}">${pesquisador.nome}</option>
+				</c:forEach>
+				</select>
+				<p class="help-block">Segure ctrl para selecionar mais de um pesquisador</p>
+			<input type="button" name="ViewReport" value="View" class="bnotes"
+							onclick="GetInventoryPes();"> 
 		</form>
 		</div>
 		
@@ -230,7 +266,7 @@
             <input class="form-control" id="datepicker2" type="text"
             name="projeto.dataFim" value="${projeto.dataFim}">
           </div>
-          
+          <input type="hidden" id="projeto.pesquisadores" name="projeto.pesquisadores" />
           <input type="hidden" id="projeto.cnpjs" name="projeto.cnpjs" />
           
           <label class="control-label">teste</label>
