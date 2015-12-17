@@ -1,91 +1,48 @@
 //package modelo;
 //
-//import javax.persistence.Column;
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
-//import javax.persistence.Table;
+//import javax.persistence.SequenceGenerator;
 //
-//import org.mindrot.jbcrypt.BCrypt;
-//
-//@Table(name="Usuario_table")
-//@Entity(name="Usuario")
+//@Entity
 //public class Usuario {
+//	
 //	@Id
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-//	@Column
+//	@SequenceGenerator(name = "seq", sequenceName = "visits_seq")
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 //	private Long id;
-//
-//	@Column
-//	private String email;
-//	@Column
-//	private String pass;
-//	@Column
-//	private String nome;
-//	@Column
+//	
 //	private String login;
+//	private String senha;
+//	private boolean admin;
 //	
-//	public Usuario() {
-//	}
-//	
-//	public Usuario(String email, String pass, String login) {
-//		this.email = email;		
-//		this.pass = BCrypt.hashpw(pass, BCrypt.gensalt());
-//		this.login = login;
+//	public Long getId() {
+//		return id;
 //	}
 //
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public boolean checkPass(String pass) {
-//		return BCrypt.checkpw(pass, this.pass);
-//	}
-//
-//	public void setPass(String pass) {
-//		this.pass = BCrypt.hashpw(pass, BCrypt.gensalt());
-//	}
-//
-//	public String getNome() {
-//		return nome;
-//	}
-//
-//	public void setNome(String nome) {
-//		this.nome = nome;
-//	}
-//	
 //	public String getLogin() {
 //		return login;
 //	}
-//	
+//
 //	public void setLogin(String login) {
 //		this.login = login;
 //	}
-//	
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + ((email == null) ? 0 : email.hashCode());
-//		result = prime * result + ((pass == null) ? 0 : pass.hashCode());
-//		return result;
+//
+//	public String getSenha() {
+//		return senha;
 //	}
 //
-//	@Override
-//	public boolean equals(Object obj) {
-//		if(obj == null || !(obj instanceof Usuario)){
-//			return false;
-//		}
-//		Usuario other = (Usuario) obj;
-//		return other.hashCode()==this.hashCode();
-//	}	
+//	public void setSenha(String senha) {
+//		this.senha = senha;
+//	}
 //
-//	public Long getId() {
-//		return id;
+//	public boolean isAdmin() {
+//		return admin;
+//	}
+//
+//	public void setAdmin(boolean admin) {
+//		this.admin = admin;
 //	}
 //}

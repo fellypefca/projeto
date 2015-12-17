@@ -64,6 +64,12 @@
 			<version>1.7.5</version>
 		</dependency>
 
+	<dependency>
+		<groupId>br.com.caelum.vraptor</groupId>
+		<artifactId>vraptor-brutauth</artifactId>
+		<version>4.0.4</version> <!--or the latest version -->
+	</dependency>
+
 	</dependencies>
 
 	<build>

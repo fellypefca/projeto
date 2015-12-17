@@ -25,10 +25,14 @@
 <link
 	href="${pageContext.request.contextPath}/bootstrap/css/jquery-ui.css"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="/bootstrap/jquery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
@@ -37,7 +41,8 @@
 	type="text/css">
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 <script type="text/javascript"
@@ -68,61 +73,56 @@
 
 
 <title>Cadastro de Pesquisadores</title>
- </head>
-  <body>
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="${linkTo[IndexController].index}">Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-        				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Projeto <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
-           					 <li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
-       					 </ul>
-            </li>
-            <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pesquisador <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[PesquisadorController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[PesquisadorController].lista}">Lista</a></li>
- 						 </ul>
-            </li>
-             <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categoria <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[CategoriaController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[CategoriaController].lista}">Lista</a></li>
- 						 </ul>
-            </li>
-           <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Departamento <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[DepartamentoController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[DepartamentoController].lista}">Lista</a></li>
- 						 </ul>
-            </li>
-              <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Orgão Financiador <b class="caret"></b></a>
-        				<ul class="dropdown-menu">
-           					 <li><a href="${linkTo[OrgaoController].formulario}">Cadastrar</a></li>
-           					 <li><a href="${linkTo[OrgaoController].lista}">Lista</a></li>
- 						 </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+</head>
+<body>
+	<div class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-ex-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="${linkTo[IndexController].index}">Home</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" data-toggle="dropdown"
+						class="dropdown-toggle">Projeto <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${linkTo[AtividadeController].lista}">Atividades</a></li>
+							<li><a href="${linkTo[ProjetoController].formulario}">Cadastrar</a></li>
+							<li><a href="${linkTo[ProjetoController].lista}">Lista</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" data-toggle="dropdown"
+						class="dropdown-toggle">Pesquisador <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${linkTo[PesquisadorController].formulario}">Cadastrar</a></li>
+							<li><a href="${linkTo[PesquisadorController].lista}">Lista</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" data-toggle="dropdown"
+						class="dropdown-toggle">Categoria <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${linkTo[CategoriaController].formulario}">Cadastrar</a></li>
+							<li><a href="${linkTo[CategoriaController].lista}">Lista</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" data-toggle="dropdown"
+						class="dropdown-toggle">Departamento <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${linkTo[DepartamentoController].formulario}">Cadastrar</a></li>
+							<li><a href="${linkTo[DepartamentoController].lista}">Lista</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="#" data-toggle="dropdown"
+						class="dropdown-toggle">Orgão Financiador <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${linkTo[OrgaoController].formulario}">Cadastrar</a></li>
+							<li><a href="${linkTo[OrgaoController].lista}">Lista</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<h2 class="text-center" style="COLOR: #397cbb;">Formulário de
 		Cadastro de Pesquisadores</h2>
 	<div class="div-ident section text-left">
@@ -130,33 +130,34 @@
 			<div class="col-md-9 div-ident">
 				<p></p>
 				<p></p>
-				<form  id="form" style="width: 885px" class=""
+				<form id="form" style="width: 885px" class=""
 					action="${linkTo[PesquisadorController].salva }" method="post">
-					<input type="hidden" name="pesquisador.id" value="${pesquisador.id}">
+					<input type="hidden" name="pesquisador.id"
+						value="${pesquisador.id}">
 					<div class="form-group">
 						<label class="control-label">CPF</label> <input
 							class="form-control" type="text" name="pesquisador.cpf"
 							value="${pesquisador.cpf}" />
 					</div>
-					
+
 					<div class="form-group">
 						<label class="control-label">Nome</label> <input
 							class="form-control" type="text" name="pesquisador.nome"
 							value="${pesquisador.nome}" />
 					</div>
-					
+
 					<div class="form-group">
 						<label class="control-label">Telefone</label> <input
 							class="form-control" type="text" name="pesquisador.telefone"
 							value="${pesquisador.telefone}" />
 					</div>
-					
+
 					<div class="form-group">
 						<label class="control-label">Email</label> <input
 							class="form-control" type="text" name="pesquisador.email"
 							value="${pesquisador.email}" />
 					</div>
-					
+
 					<div class="form-group" id="initdata">
 						<label class="control-label">Data de Nascimento</label> <input
 							class="form-control" id="datepicker" type="text"
@@ -186,26 +187,58 @@
 						</select>
 					</div>
 
-					
+
 					<div class="form-group">
 						<label class="control-label">Lattes</label> <input
 							class="form-control" type="text" name="pesquisador.lattesUrl"
 							value="${pesquisador.lattesUrl}" />
 					</div>
-				
+					<h3>Endereço</h3>
+					<input type="hidden" name="endereco.id" value="${endereco.id}">
+					<div class="form-group">
+						<label class="control-label">CEP</label> <input
+							class="form-control" type="text" name="endereco.cep"
+							value="${endereco.cep}" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Logradouro</label> <input
+							class="form-control" type="text" name="endereco.logradouro"
+							value="${endereco.logradouro}" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label">Número</label> <input
+							class="form-control" type="text" name="endereco.numero"
+							value="${endereco.numero}" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Bairro</label> <input
+							class="form-control" type="text" name="endereco.bairro"
+							value="${endereco.bairro}" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Cidade</label> <input
+							class="form-control" type="text" name="endereco.cidade"
+							value="${endereco.cidade}" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Estado</label> <input
+							class="form-control" type="text" name="endereco.estado"
+							value="${endereco.estado}" />
+					</div>
 
 					<ul class="errors">
-							<c:forEach items="${errors}" var="error">
-								<li>
-									<!-- o campo em que ocorreu o erro, ou o tipo do erro -->
-									${error.category}: <!-- a mensagem de erro de validação -->
-									${error.message}
-								</li>
-							</c:forEach>
-						</ul>
-						<div align=center>
+						<c:forEach items="${errors}" var="error">
+							<li>
+								<!-- o campo em que ocorreu o erro, ou o tipo do erro -->
+								${error.category}: <!-- a mensagem de erro de validação -->
+								${error.message}
+							</li>
+						</c:forEach>
+					</ul>
+					<div align=center>
 						<input type="submit" class="btn btn-primary" value="Salvar" />
-						</div>
+					</div>
 				</form>
 			</div>
 		</div>
