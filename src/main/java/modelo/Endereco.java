@@ -78,20 +78,20 @@ public class Endereco {
 				" - " + getBairro() + " - " + getCidade() + " - " + getEstado() + " - " +  getCep();
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
-		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
-		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result
-				+ ((logradouro == null) ? 0 : logradouro.hashCode());
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
-		return result;
-	}
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
+//		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
+//		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
+//		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+//		result = prime * result + (int) (id ^ (id >>> 32));
+//		result = prime * result
+//				+ ((logradouro == null) ? 0 : logradouro.hashCode());
+//		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+//		return result;
+//	}
 
 	@Override
 	public boolean equals(Object obj) {

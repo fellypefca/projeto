@@ -1,5 +1,6 @@
 package controller;
 
+import icadastra.ICadastraEndereço;
 import icadastra.ICadastraPesquisador;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 
 import modelo.Categoria;
 import modelo.Departamento;
+import modelo.Endereco;
 import modelo.Pesquisador;
 import modelo.Projeto;
 import br.com.caelum.vraptor.Controller;
@@ -19,14 +21,16 @@ import br.com.caelum.vraptor.validator.Validator;
 public class PesquisadorController {
 	
 	private ICadastraPesquisador aux;
+	private ICadastraEndereço auxE;
 	private Result result;
 	private Validator validator;
 	
 	@Inject
 	public PesquisadorController(ICadastraPesquisador aux, Result result,
-			Validator validator) {
+			Validator validator, ICadastraEndereço auxE ) {
 		
 		super();
+		this.auxE = auxE;
 		this.aux = aux;
 		this.result = result;
 		this.validator = validator;
@@ -40,7 +44,7 @@ public class PesquisadorController {
 		result.include("departamento", listaDepartamento());
 	}
 	
-	public void salva(Pesquisador pesquisador) {
+	public void salva(Pesquisador pesquisador, Endereco endereco) {
 		
 //		Pesquisador teste = aux.buscaPorCPF(pesquisador.getCpf());
 //		if(teste != null) {
@@ -51,6 +55,15 @@ public class PesquisadorController {
 		validator.validate(pesquisador);
 		validator.onErrorRedirectTo(this).formulario();
 		aux.cadastra(pesquisador);
+		
+		validator.validate(endereco);
+		validator.onErrorRedirectTo(this).formulario();
+		auxE.cadastra(endereco);
+		
+		pesquisador.setEndereco(endereco);
+		aux.cadastra(pesquisador);
+		
+		
 		result.redirectTo(this).lista();
 //		}
 	}
