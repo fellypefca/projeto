@@ -55,77 +55,39 @@
 	type="text/css">
   </head>
 <body>
-
-	   <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="text-center text-primary">Universidade Federal de Campina Grande</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+ <h2 class="text-center text-primary">Registro de Usuário</h2>
     <div class="section">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-              <h2 class="text-center text-muted">SCP - Sistema de Cadastro de Projetos</h2>
-          </div>
-          
-         <p></p><p></p><p></p>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-            <div class="container text-left"
+         <div class="container text-left"
     				style="width: 685px">
       		<div class="col-md-12 div-ident text-left">
-            <form class="form-horizontal" role="form" action="${linkTo[LoginController].login }">
+            <form role="form" action="${linkTo[LoginController].salva}">
               <div class="form-group">
-                <div class="col-sm-2">
-                  <label for="inputEmail3" class="control-label">Login</label>
-                </div>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="login" value="${login}" placeholder="Login" >
-                </div>
+                <label class="control-label" for="exampleInputEmail1">Email </label>
+                <input class="form-control" 
+                type="text" name="usuario.email"  value="${usuario.email}" />
               </div>
               <div class="form-group">
-                <div class="col-sm-2">
-                  <label for="inputPassword3" class="control-label">Senha</label>
-                </div>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" name="senha"  value="${senha}" placeholder="Senha">
-                </div>
+                <label class="control-label" for="exampleInputPassword1">CPF</label>
+                <input class="form-control" type="text" name="usuario.cpf" value="${usuario.cpf}"/>
+
               </div>
               <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="radio">
-                    <div><label>
-                      <input type="radio" name ="categoria" value="Administrador">Administrador</label>
-                         </div>
-                         <div>
-                         <label>
-                      <input type="radio" name ="categoria" value="Coordenador">Coordenador</label>
-                         </div>
-                         <div>
-                         <label>
-                      <input type="radio" name ="categoria" value="Pesquisador" >Pesquisador</label>
-                  </div>
-                  </div>
-                </div>
-              </div> 
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <input type="submit" class="btn btn-primary" value="Entrar" > <a href="${linkTo[LoginController].registro}">     Registar</a>
-                </div>
+                <label class="control-label">Senha</label>
+                <input class="form-control" type="password" name="usuario.senha"  value="${usuario.senha}"/>
               </div>
+              <div class="form-group">
+                <label class="control-label">Confirmação da senha</label>
+                <input class="form-control" type="password"/>
+              </div>
+              <input type="submit" class="btn btn-primary" value="Registrar" >
             </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </body>
 
 </html>
-
-
